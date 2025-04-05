@@ -1,7 +1,7 @@
 export interface Unit {
     name: string;
     image: string;
-    move: number;
+    movement: number;
     defence: number;
     infantry: number;
     lightVehicles: number;
@@ -12,7 +12,7 @@ export const units: Unit[] = [
     {
         name: "Sgt. Vorolanus",
         image: "sgt-vorolanus.jpg",
-        move: 4,
+        movement: 4,
         defence: 6,
         infantry: 2,
         lightVehicles: 1,
@@ -21,7 +21,7 @@ export const units: Unit[] = [
     {
         name: "Plasma Gun",
         image: "plasma-gun.jpg",
-        move: 3,
+        movement: 3,
         defence: 6,
         infantry: 3,
         lightVehicles: 3,
@@ -30,7 +30,7 @@ export const units: Unit[] = [
     {
         name: "Tactical",
         image: "tactical.jpg",
-        move: 3,
+        movement: 3,
         defence: 5,
         infantry: 3,
         lightVehicles: 2,
@@ -39,7 +39,7 @@ export const units: Unit[] = [
     {
         name: "Heavy Bolter",
         image: "heavy-bolter.jpg",
-        move: 3,
+        movement: 3,
         defence: 5,
         infantry: 4,
         lightVehicles: 3,
@@ -48,7 +48,7 @@ export const units: Unit[] = [
     {
         name: "Lascannon",
         image: "lascannon.jpg",
-        move: 3,
+        movement: 3,
         defence: 5,
         infantry: 3,
         lightVehicles: 5,
