@@ -39,13 +39,15 @@ const UnitList = () => {
       <div className="col-3">
         <h1>{selectedUnit.name}</h1>
 
-        <span className="lead">{selectedUnit.faction} / {selectedUnit.type} / {selectedUnit.role}</span>
-
         <p><UnitTokenImage unit={selectedUnit} /></p>
 
-        <h2>Values</h2>
-
         <dl>
+          <dt>Faction</dt>
+          <dd>{selectedUnit.faction}</dd>
+          <dt>Type</dt>
+          <dd>{selectedUnit.type}</dd>
+          <dt>Role</dt>
+          <dd>{selectedUnit.role}</dd>
           <dt>Movement</dt>
           <dd>{selectedUnit.movement}</dd>
           <dt>Defence</dt>
