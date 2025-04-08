@@ -54,7 +54,7 @@ export const units: Unit[] = [
     infantry: 2,
     lightVehicles: 1,
     heavyVehicles: 0,
-    abilities: [Ability.Order, Ability.Ambush, Ability.FireOnTheMove, Ability.LimitedRange]
+    abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange]
   },
   {
     name: "Plasma Gun",
@@ -68,7 +68,7 @@ export const units: Unit[] = [
     infantry: 3,
     lightVehicles: 3,
     heavyVehicles: 2,
-    abilities: [Ability.Ambush, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
+    abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
   },
   {
     name: "Tactical",
@@ -82,7 +82,7 @@ export const units: Unit[] = [
     infantry: 3,
     lightVehicles: 2,
     heavyVehicles: 0,
-    abilities: [Ability.Ambush, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
     name: "Heavy Bolter",
@@ -96,7 +96,7 @@ export const units: Unit[] = [
     infantry: 4,
     lightVehicles: 3,
     heavyVehicles: 1,
-    abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
   },
   {
     name: "Lascannon",
@@ -194,7 +194,7 @@ export const units: Unit[] = [
     infantry: 2,
     lightVehicles: 2,
     heavyVehicles: 2,
-    abilities: [Ability.Techmarine, Ability.Ambush, Ability.Flamethrower, Ability.FireOnTheMove]
+    abilities: [Ability.Techmarine, Ability.Assault, Ability.Flamethrower, Ability.FireOnTheMove]
   },
   {
     name: "Scout",
