@@ -59,7 +59,7 @@ const UnitList = () => {
 
               <Accordion>
                 {selectedUnit.abilities.map((ability) => (
-                  <Accordion.Item eventKey={ability}>
+                  <Accordion.Item eventKey={ability} key={ability}>
                     <Accordion.Header><img
                       className="me-2"
                       alt={`${selectedUnit.name} Token`}
