@@ -2,7 +2,6 @@ import React from "react";
 
 export const Mekaniak = () => {
   return <>
-    <h3><img src="/abilities/mekaniak.png" width={32} height={32} /> Mekaniak</h3>
     <p>Ork Mekaniaks have an uncanny ability to keep their
       Vehicles and machines operating, though no one can
       seem to figure out how they do it. They can use this

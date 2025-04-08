@@ -2,7 +2,6 @@ import React from "react";
 
 export const Inspiration = () => {
   return <>
-    <h3><img src="/abilities/inspiration.png" width={32} height={32} /> Inspiration</h3>
     <p>
       When this Unit is activated during the Activation or
       Supply Phase, in addition to its normal action, it may

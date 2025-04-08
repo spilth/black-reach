@@ -2,7 +2,6 @@ import React from "react";
 
 export const Sniper = () => {
   return <>
-    <h3><img src="/abilities/sniper.png" width={32} height={32} /> Sniper</h3>
     <p>A sniper can only target Infantry Units.</p>
     <p>Its player rolls a die, modified by Suppressed markers
       and Obstacles, and checks the following table:</p>

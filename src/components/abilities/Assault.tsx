@@ -2,7 +2,6 @@ import React, { type FC } from "react";
 
 export const Assault = () => {
   return <>
-    <h3><img src="/abilities/assault.png" width={32} height={32} /> Assault</h3>
     <p>Only Units that have the Assault Special Ability may
       engage an enemy Infantry Unit or Vehicle in close
       combat.</p>

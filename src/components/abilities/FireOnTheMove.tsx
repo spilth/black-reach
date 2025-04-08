@@ -2,7 +2,6 @@ import React from "react";
 
 export const FireOnTheMove = () => {
   return <>
-    <h3><img src="/abilities/fireonthemove.png" width={32} height={32} /> Fire on the Move</h3>
     <p>This Unit may take a Firing Action during its Movement
       Action. The Fire on the Move attack can be executed
       once during each Movement Action the Unit takes,

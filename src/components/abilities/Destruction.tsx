@@ -2,7 +2,6 @@ import React from "react";
 
 export const Destruction = () => {
   return <>
-    <h3><img src="/abilities/destruction.png" width={32} height={32} /> Destruction</h3>
     <p>If a Unit or Gear with this Special Ability targets a
       Structure or a Unit inside a Structure during a Firing
       Action or an Assault, it may inflict Destruction Points

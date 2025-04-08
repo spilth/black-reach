@@ -2,8 +2,6 @@ import React from "react";
 
 export const Ambush = () => {
   return <>
-    <h3><img src="/abilities/ambush.png" width={32} height={32} /> Ambush</h3>
-
     <p>This Unit can conceal itself from observation by
       the enemy.</p>
     <p>When a Unit is Concealed (Active Side up), it

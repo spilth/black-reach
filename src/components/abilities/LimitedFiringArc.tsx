@@ -2,7 +2,6 @@ import React from "react";
 
 export const LimitedFiringArc = () => {
   return <>
-    <h3><img src="/abilities/limitedfiringarc.png" width={32} height={32} />Limited Firing Arc</h3>
     <p>
       Unless otherwise indicated, all Units have a 360° Firing
       Arc. Some weapons, however, have a Limited Firing

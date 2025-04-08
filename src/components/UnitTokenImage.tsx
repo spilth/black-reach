@@ -12,9 +12,9 @@ export const UnitTokenImage = ({ unit }: { unit: Unit }) => {
     case Size.Squad:
       width = 256;
       height = 256;
-
   }
+
   return (<img src={`/units/${unit.image}`}
                alt={unit.name} width={width} height={height}
-               className="rounded-5" />);
+               className="img-fluid" />);
 };

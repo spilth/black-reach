@@ -2,7 +2,6 @@ import React from "react";
 
 export const Howitzer = () => {
   return <>
-    <h3><img src="/abilities/howitzer.png" width={32} height={32} /> Howitzer</h3>
     <p>When you use this Special Ability, you must target an Interspace.
       There is no range limit or Long Range penalty (see p.8).
       But, you need to have a Clear or Obscured LoS to the

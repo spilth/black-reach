@@ -2,7 +2,6 @@ import React from "react";
 
 export const SuppressiveFire = () => {
   return <>
-    <h3><img src="/abilities/suppressivefire.png" width={32} height={32} /> Suppressive Fire</h3>
     <p>This is one of the most important Special
       Abilities in the game! It enables you to temporarily
       neutralize well-protected Units or prepare for an

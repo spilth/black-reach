@@ -2,7 +2,6 @@ import React from "react";
 
 export const Flamethrower = () => {
   return <>
-    <h3><img src="/abilities/flamethrower.png" width={32} height={32} /> Flamethrower</h3>
     <p>A Unit that has a Flamer uses a special Template. Use the
       Combat Values on the Template when it uses the Flamer. Use
       the Unit's normal Combat Values if it attacks without using the

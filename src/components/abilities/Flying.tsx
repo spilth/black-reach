@@ -2,7 +2,6 @@ import React from "react";
 
 export const Flying = () => {
   return <>
-    <h3><img src="/abilities/flying.png" width={32} height={32} /> Flying (Special Movement)</h3>
     <p>A Unit that has this special movement can
       fly over Terrain Elements or other Units if its
       Movement Value allows it.</p>

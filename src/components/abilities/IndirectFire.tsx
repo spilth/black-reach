@@ -2,7 +2,6 @@ import React from "react";
 
 export const IndirectFire = () => {
   return <>
-    <h3><img src="/abilities/indirectfire.png" width={32} height={32} /> IndirectFire</h3>
     <p>This Special Ability works just like
       Howitzer, but it is used when the
       firing Unit does not have a Clear

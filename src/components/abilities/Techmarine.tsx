@@ -2,7 +2,6 @@ import React from "react";
 
 export const Techmarine = () => {
   return <>
-    <h3><img src="/abilities/techmarine.png" width={32} height={32} /> Techmarine</h3>
     <p>Techmarines are Space Marines that have been
       inducted into the secrets of the Machine Cult. They
       can use this Special Ability any time a friendly Heavy
