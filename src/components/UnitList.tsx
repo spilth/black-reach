@@ -1,8 +1,9 @@
 import React, { type FC, useEffect } from "react";
-import { type Unit, units } from "../data/units.tsx";
+import { Faction, type Unit, units } from "../data/units.tsx";
 import { Assault } from "./abilities/Assault.tsx";
 import { Ability, abilityComponents } from "../data/abilities.tsx";
 import { UnitTokenImage } from "./UnitTokenImage.tsx";
+import { Accordion, ListGroup } from "react-bootstrap";
 
 const UnitList = () => {
   const [selectedUnit, setSelectedUnit] = React.useState<Unit>(units[0]);
@@ -24,17 +25,35 @@ const UnitList = () => {
   return (
     <div className="row">
       <div className="col-2">
-        <div className="list-group list-group-flush">
-          {units.map(unit => (
-              <a key={unit.name}
-                 className={"list-group-item list-group-item-action " + ((unit.name === selectedUnit.name) ? "active" : "")}
-                 onClick={(event) => {
-                   event.preventDefault();
-                   setSelectedUnit(unit);
-                 }}>{unit.name}</a>
-            )
-          )}
-        </div>
+        <Accordion alwaysOpen>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Ultramarines</Accordion.Header>
+            <Accordion.Body className="p-0">
+              <ListGroup variant="flush">
+                {units.filter((unit) => unit.faction == Faction.Ultramarines).map(unit => (
+                    <ListGroup.Item key={unit.name}
+                                    active={unit.name === selectedUnit.name}
+                                    onClick={() => setSelectedUnit(unit)}>{unit.name}</ListGroup.Item>
+                  )
+                )}
+              </ListGroup>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Orks</Accordion.Header>
+            <Accordion.Body className="p-0">
+              <ListGroup variant="flush">
+                {units.filter((unit) => unit.faction == Faction.Orks).map(unit => (
+                    <ListGroup.Item key={unit.name}
+                                    active={unit.name === selectedUnit.name}
+                                    onClick={() => setSelectedUnit(unit)}>{unit.name}</ListGroup.Item>
+                  )
+                )}
+              </ListGroup>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+
       </div>
       <div className="col-3">
         <h1>{selectedUnit.name}</h1>
@@ -65,20 +84,22 @@ const UnitList = () => {
           <>
             <h2>Special Abilities</h2>
 
-            <div className="list-group">
+            <ListGroup>
               {selectedUnit.abilities.map((ability) => (
-                <a key={ability}
-                   className={"list-group-item list-group-item-action " + ((ability === selectedAbility) ? "active" : "")}
-                   onClick={(event) => {
-                     event.preventDefault();
-                     setSelectedAbility(ability);
-                   }}
+                <ListGroup.Item action key={ability}
+                                active={ability === selectedAbility}
+                                onClick={(event) => {
+                                  event.preventDefault();
+                                  setSelectedAbility(ability);
+                                }}
                 ><img
+                  alt={`${selectedUnit.name} Token`}
                   src={`/abilities/${ability.toLowerCase().replace(/ /g, "")}.png`} width={32}
-                  height={32} /> {ability.valueOf()}</a>
+                  height={32} /> {ability.valueOf()}
+                </ListGroup.Item>
               ))}
 
-            </div>
+            </ListGroup>
           </>
         )}
       </div>
