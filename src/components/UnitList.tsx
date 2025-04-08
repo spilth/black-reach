@@ -15,11 +15,10 @@ const UnitList = () => {
   const [selectedUnit, setSelectedUnit] = React.useState<Unit>(units[0]);
 
   return (
-    <div className="container-fluid">
-
-      <div className="row">
-        <div className="col-md-2">
-          <Accordion defaultActiveKey="0">
+    <div className="pe-2">
+      <div className="row g-0 vh-100">
+        <div className="col-4 col-lg-2 border-end">
+          <Accordion defaultActiveKey="0" flush>
             <Accordion.Item eventKey="0">
               <Accordion.Header>Ultramarines</Accordion.Header>
               <Accordion.Body className="p-0">
@@ -49,28 +48,11 @@ const UnitList = () => {
           </Accordion>
 
         </div>
-        <div className="col-md-3">
+        <div className="col-8 col-lg-10 ps-2">
           <h1>{selectedUnit.name}</h1>
-
-          <p className="lead">{selectedUnit.type} / {selectedUnit.role}</p>
 
           <p><UnitTokenImage unit={selectedUnit} /></p>
 
-
-          <dl>
-            <dt>Movement</dt>
-            <dd>{selectedUnit.movement}</dd>
-            <dt>Defence</dt>
-            <dd>{selectedUnit.defence}</dd>
-            <dt>Infantry</dt>
-            <dd>{selectedUnit.infantry != null ? (selectedUnit.infantry >= 0 ? `+${selectedUnit.infantry}` : "") : "X"}</dd>
-            <dt>Light Vehicles</dt>
-            <dd>{selectedUnit.lightVehicles != null ? (selectedUnit.lightVehicles >= 0 ? `+${selectedUnit.lightVehicles}` : "") : "X"}</dd>
-            <dt>Heavy Vehicles</dt>
-            <dd>{selectedUnit.heavyVehicles != null ? (selectedUnit.heavyVehicles >= 0 ? `+${selectedUnit.heavyVehicles}` : "") : "X"}</dd>
-          </dl>
-        </div>
-        <div className="col-md-4">
           {selectedUnit.abilities && (
             <>
               <h2>Special Abilities</h2>
