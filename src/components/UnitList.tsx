@@ -32,7 +32,6 @@ const UnitList = () => {
       <div className="col-4 col-lg-5 p-2">
         <UnitTokenImage unit={selectedUnit} />
       </div>
-
     </div>
   </div>;
 };

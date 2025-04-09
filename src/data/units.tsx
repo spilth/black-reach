@@ -6,24 +6,31 @@ export enum Faction {
 }
 
 export enum Role {
-  Regular = "Regular", // Faction Color
-  Leader = "Leader", // Yellow
+  Regular = "Regular",           // Faction Color
+  Leader = "Leader",             // Yellow
   HeavyWeapons = "Heavy Weapons" // Red
 }
 
 export enum Type {
-  Infantry = "Infantry", // Yellow Defence Shield
+  Infantry = "Infantry",          // Yellow Defence Shield
   LightVehicle = "Light Vehicle", // Red Defence Shield
   HeavyVehicle = "Heavy Vehicle", // Gray Defence Shield
 }
 
 export enum Size {
-  Individual = "Individual", // 368x368
-  Squad = "Squad", // 422x422
-  Mech = "Mech", // 552x422
-  Vehicle = "Vehicle", // 472x768
+  Individual = "Individual",      // 368x368
+  Squad = "Squad",                // 422x422
+  Mech = "Mech",                  // 552x422
+  Vehicle = "Vehicle",            // 472x768
   LargeVehicle = "Large Vehicle", // 906x906
-  LongVehicle = "Long Vehicle", // 466x929
+  LongVehicle = "Long Vehicle",   // 466x929
+}
+
+export interface Weapon {
+  infantry: number | null;
+  lightVehicle: number | null;
+  heavyVehicle: number | null;
+  abilities: Ability[];
 }
 
 export interface Unit {
@@ -39,6 +46,8 @@ export interface Unit {
   lightVehicles: number | null;
   heavyVehicles: number | null;
   abilities?: Ability[];
+  primaryWeapons?: Weapon[];
+  secondaryWeapon?: Weapon | null;
 }
 
 export const units: Unit[] = [
@@ -55,6 +64,34 @@ export const units: Unit[] = [
     lightVehicles: null,
     heavyVehicles: null,
     abilities: [Ability.Fragile, Ability.MunitionsCarrier]
+  },
+  {
+    name: "Battlewagon",
+    faction: Faction.Orks,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "battlewagon.jpg",
+    movement: 4,
+    defence: 8,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    abilities: [Ability.Transport],
+    primaryWeapons: [
+      {
+        infantry: 2,
+        lightVehicle: 3,
+        heavyVehicle: 2,
+        abilities: [Ability.IndirectFire],
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 3,
+      lightVehicle: 3,
+      heavyVehicle: 0,
+      abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire],
+    }
   },
   {
     name: "Big Shoota",
@@ -113,6 +150,33 @@ export const units: Unit[] = [
     abilities: [Ability.Order, Ability.Assault, Ability.LimitedRange]
   },
   {
+    name: "Brother Agnathio",
+    faction: Faction.Ultramarines,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Mech,
+    image: "brother-agnathio.jpg",
+    movement: 3,
+    defence: 8,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    primaryWeapons: [
+      {
+        infantry: 2,
+        lightVehicle: 5,
+        heavyVehicle: 4,
+        abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove],
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 2,
+      lightVehicle: 1,
+      heavyVehicle: 0,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing],
+    }
+  },
+  {
     name: "Brother Millius",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -139,6 +203,33 @@ export const units: Unit[] = [
     lightVehicles: 2,
     heavyVehicles: 1,
     abilities: [Ability.Inspiration, Ability.Assault, Ability.LimitedRange]
+  },
+  {
+    name: "Deff Dread",
+    faction: Faction.Orks,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Mech,
+    image: "deff-dread.jpg",
+    movement: 3,
+    defence: 8,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    primaryWeapons: [
+      {
+        infantry: 1,
+        lightVehicle: 4,
+        heavyVehicle: 4,
+        abilities: [Ability.Demolishing, Ability.LimitedRange]
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 3,
+      lightVehicle: 3,
+      heavyVehicle: 0,
+      abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove],
+    }
   },
   {
     name: "Gorkargk",
@@ -209,6 +300,34 @@ export const units: Unit[] = [
     lightVehicles: 4,
     heavyVehicles: 4,
     abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+  },
+  {
+    name: "Land Raider Redeemer",
+    faction: Faction.Ultramarines,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.LargeVehicle,
+    image: "land-raider-redeemer.jpg",
+    movement: 4,
+    defence: 9,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    abilities: [Ability.NoWeakPoint, Ability.Transport],
+    primaryWeapons: [
+      {
+        infantry: null,
+        lightVehicle: null,
+        heavyVehicle: null,
+        abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 5,
+      lightVehicle: 3,
+      heavyVehicle: 2,
+      abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove],
+    }
   },
   {
     name: "Land Speeder Storm",
@@ -293,6 +412,76 @@ export const units: Unit[] = [
     lightVehicles: 3,
     heavyVehicles: 2,
     abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
+  },
+  {
+    name: "Predator (A)",
+    faction: Faction.Ultramarines,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "predator-a.jpg",
+    movement: 4,
+    defence: 8,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    abilities: [],
+    primaryWeapons: [
+      {
+        infantry: 4,
+        lightVehicle: 4,
+        heavyVehicle: 2,
+        abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove],
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 2,
+      lightVehicle: 5,
+      heavyVehicle: 4,
+      abilities: [Ability.Piercing, Ability.FireOnTheMove],
+    }
+  },
+  {
+    name: "Razorback",
+    faction: Faction.Ultramarines,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "razorback.jpg",
+    movement: 6,
+    defence: 7,
+    infantry: null,
+    lightVehicles: null,
+    heavyVehicles: null,
+    abilities: [Ability.Transport],
+    primaryWeapons: [
+      {
+        infantry: 4,
+        lightVehicle: 3,
+        heavyVehicle: 1,
+        abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
+      }
+    ],
+    secondaryWeapon: {
+      infantry: 2,
+      lightVehicle: 1,
+      heavyVehicle: null,
+      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove],
+    }
+  },
+  {
+    name: "Rhino",
+    faction: Faction.Ultramarines,
+    type: Type.HeavyVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "rhino.jpg",
+    movement: 6,
+    defence: 7,
+    infantry: 2,
+    lightVehicles: 1,
+    heavyVehicles: null,
+    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
     name: "Rokkit Launcha",
@@ -516,7 +705,7 @@ export const units: Unit[] = [
     infantry: 3,
     lightVehicles: 3,
     heavyVehicles: null,
-    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire],
+    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
     name: "Uzdrakh",

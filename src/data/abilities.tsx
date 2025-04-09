@@ -28,29 +28,38 @@ import { Weirdboy } from "../components/abilities/Weirdboy.tsx";
 import { Large } from "../components/abilities/Large.tsx";
 import { Transport } from "../components/abilities/Transport.tsx";
 import { MachineGunner } from "../components/abilities/MachineGunner.tsx";
+import { DoubleFire } from "../components/abilities/DoubleFire.tsx";
+import { TwinLinked } from "../components/abilities/TwinLinked.tsx";
+import { Demolishing } from "../components/abilities/Demolishing.tsx";
+import { Charge } from "../components/abilities/Charge.tsx";
+import { NoWeakPoint } from "../components/abilities/NoWeakPoint.tsx";
 
 export enum Ability {
   Ambush = "Ambush",
   Assault = "Assault",
   Bodyguard = "Bodyguard",
+  Charge = "Charge",
+  Demolishing = "Demolishing",
   Destruction = "Destruction",
+  DoubleFire = "Double Fire",
   FireOnTheMove = "Fire on the Move",
   Flamethrower = "Flamethrower",
   Fragile = "Fragile",
-  FrighteningShot = "FrighteningShot",
+  FrighteningShot = "Frightening Shot",
   Flying = "Flying",
   GrotOilers = "Grot Oilers",
   HawkEyed = "HawkEyed",
   Howitzer = "Howitzer",
-  IndirectFire = "IndirectFire",
+  IndirectFire = "Indirect Fire",
   Inspiration = "Inspiration",
   Large = "Large",
   Librarian = "Librarian",
-  LimitedFiringArc = "LimitedFiringArc",
+  LimitedFiringArc = "Limited Firing Arc",
   LimitedRange = "Limited Range",
   MachineGunner = "Machine Gunner",
   Mekaniak = "Mekaniak",
   MunitionsCarrier = "Munitions Carrier",
+  NoWeakPoint = "No Weak Point",
   Order = "Order",
   Piercing = "Piercing",
   Signum = "Signum",
@@ -59,6 +68,7 @@ export enum Ability {
   Techmarine = "Techmarine",
   Tearing = "Tearing",
   Transport = "Transport",
+  TwinLinked = "Twin Linked",
   Weirdboy = "Weirdboy",
 }
 
@@ -66,7 +76,10 @@ export const abilityComponents = {
   [Ability.Ambush]: Ambush,
   [Ability.Assault]: Assault,
   [Ability.Bodyguard]: Bodyguard,
+  [Ability.Charge]: Charge,
+  [Ability.Demolishing]: Demolishing,
   [Ability.Destruction]: Destruction,
+  [Ability.DoubleFire]: DoubleFire,
   [Ability.FireOnTheMove]: FireOnTheMove,
   [Ability.Flamethrower]: Flamethrower,
   [Ability.Fragile]: Fragile,
@@ -84,6 +97,7 @@ export const abilityComponents = {
   [Ability.MachineGunner]: MachineGunner,
   [Ability.Mekaniak]: Mekaniak,
   [Ability.MunitionsCarrier]: MunitionsCarrier,
+  [Ability.NoWeakPoint]: NoWeakPoint,
   [Ability.Order]: Order,
   [Ability.Piercing]: Piercing,
   [Ability.Signum]: Signum,
@@ -92,5 +106,6 @@ export const abilityComponents = {
   [Ability.Tearing]: Tearing,
   [Ability.Techmarine]: Techmarine,
   [Ability.Transport]: Transport,
+  [Ability.TwinLinked]: TwinLinked,
   [Ability.Weirdboy]: Weirdboy
 };
