@@ -16,5 +16,5 @@ export const UnitTokenImage = ({ unit }: { unit: Unit }) => {
 
   return (<img src={`/units/${unit.image}`}
                alt={unit.name} width={width} height={height}
-               className="img-fluid" />);
+               className="img-fluid p-2" />);
 };

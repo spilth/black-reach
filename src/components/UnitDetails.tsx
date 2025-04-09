@@ -11,8 +11,6 @@ const UnitDetails = ({ unit }: { unit: Unit }) =>
   <>
     <h1>{unit.name}</h1>
 
-    <p><UnitTokenImage unit={unit} /></p>
-
     {unit.abilities && <>
       <h2>Special Abilities</h2>
 

@@ -26,6 +26,8 @@ import { MunitionsCarrier } from "../components/abilities/MunitionsCarrier.tsx";
 import { Tearing } from "../components/abilities/Tearing.tsx";
 import { Weirdboy } from "../components/abilities/Weirdboy.tsx";
 import { Large } from "../components/abilities/Large.tsx";
+import { Transport } from "../components/abilities/Transport.tsx";
+import { MachineGunner } from "../components/abilities/MachineGunner.tsx";
 
 export enum Ability {
   Ambush = "Ambush",
@@ -46,6 +48,7 @@ export enum Ability {
   Librarian = "Librarian",
   LimitedFiringArc = "LimitedFiringArc",
   LimitedRange = "Limited Range",
+  MachineGunner = "Machine Gunner",
   Mekaniak = "Mekaniak",
   MunitionsCarrier = "Munitions Carrier",
   Order = "Order",
@@ -55,6 +58,7 @@ export enum Ability {
   SuppressiveFire = "Suppressive Fire",
   Techmarine = "Techmarine",
   Tearing = "Tearing",
+  Transport = "Transport",
   Weirdboy = "Weirdboy",
 }
 
@@ -77,6 +81,7 @@ export const abilityComponents = {
   [Ability.Librarian]: Librarian,
   [Ability.LimitedFiringArc]: LimitedFiringArc,
   [Ability.LimitedRange]: LimitedRange,
+  [Ability.MachineGunner]: MachineGunner,
   [Ability.Mekaniak]: Mekaniak,
   [Ability.MunitionsCarrier]: MunitionsCarrier,
   [Ability.Order]: Order,
@@ -86,5 +91,6 @@ export const abilityComponents = {
   [Ability.SuppressiveFire]: SuppressiveFire,
   [Ability.Tearing]: Tearing,
   [Ability.Techmarine]: Techmarine,
+  [Ability.Transport]: Transport,
   [Ability.Weirdboy]: Weirdboy
 };

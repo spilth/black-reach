@@ -183,6 +183,48 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
   },
   {
+    name: "Killa Kan (A)",
+    faction: Faction.Orks,
+    type: Type.LightVehicle,
+    role: Role.Regular,
+    size: Size.Squad,
+    image: "killa-kan-a.jpg",
+    movement: 3,
+    defence: 8,
+    infantry: 3,
+    lightVehicles: 2,
+    heavyVehicles: 1,
+    abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+  },
+  {
+    name: "Killa Kan (B)",
+    faction: Faction.Orks,
+    type: Type.LightVehicle,
+    role: Role.Regular,
+    size: Size.Squad,
+    image: "killa-kan-b.jpg",
+    movement: 3,
+    defence: 8,
+    infantry: 4,
+    lightVehicles: 4,
+    heavyVehicles: 4,
+    abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+  },
+  {
+    name: "Land Speeder Storm",
+    faction: Faction.Ultramarines,
+    type: Type.LightVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "land-speeder-storm.jpg",
+    movement: 8,
+    defence: 8,
+    infantry: 4,
+    lightVehicles: 3,
+    heavyVehicles: 1,
+    abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport]
+  },
+  {
     name: "Lascannon",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -463,6 +505,20 @@ export const units: Unit[] = [
     abilities: [Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc]
   },
   {
+    name: "Trukk",
+    faction: Faction.Orks,
+    type: Type.LightVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "trukk.jpg",
+    movement: 6,
+    defence: 8,
+    infantry: 3,
+    lightVehicles: 3,
+    heavyVehicles: null,
+    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire],
+  },
+  {
     name: "Uzdrakh",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -475,5 +531,19 @@ export const units: Unit[] = [
     lightVehicles: 2,
     heavyVehicles: 2,
     abilities: [Ability.Large, Ability.Order, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+  },
+  {
+    name: "Warbuggy",
+    faction: Faction.Orks,
+    type: Type.LightVehicle,
+    role: Role.Regular,
+    size: Size.Vehicle,
+    image: "warbuggy.jpg",
+    movement: 6,
+    defence: 5,
+    infantry: 3,
+    lightVehicles: 3,
+    heavyVehicles: null,
+    abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
   }
-]
+];
