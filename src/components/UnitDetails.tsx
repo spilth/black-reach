@@ -23,7 +23,6 @@ const AbilitiesAccordion = ({ abilities }: { abilities: Ability[] }) => (
   </Accordion>
 );
 
-
 const UnitDetails = ({ unit }: { unit: Unit }) =>
   <>
     <h1>{unit.name}</h1>
