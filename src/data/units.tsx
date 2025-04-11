@@ -38,8 +38,8 @@ export enum Size {
 
 export interface Weapon {
   infantry: number | null;
-  lightVehicle: number | null;
-  heavyVehicle: number | null;
+  lightVehicles: number | null;
+  heavyVehicles: number | null;
   abilities: Ability[];
 }
 
@@ -94,14 +94,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: 2,
-        lightVehicle: 3,
+        lightVehicles: 3,
         heavyVehicle: 2,
         abilities: [Ability.IndirectFire]
       }
     ],
     secondaryWeapon: {
       infantry: 3,
-      lightVehicle: 3,
+      lightVehicles: 3,
       heavyVehicle: 0,
       abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire]
     }
@@ -182,14 +182,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: 2,
-        lightVehicle: 5,
+        lightVehicles: 5,
         heavyVehicle: 4,
         abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
       }
     ],
     secondaryWeapon: {
       infantry: 2,
-      lightVehicle: 1,
+      lightVehicles: 1,
       heavyVehicle: 0,
       abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing]
     }
@@ -240,14 +240,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: 1,
-        lightVehicle: 4,
+        lightVehicles: 4,
         heavyVehicle: 4,
         abilities: [Ability.Demolishing, Ability.LimitedRange]
       }
     ],
     secondaryWeapon: {
       infantry: 3,
-      lightVehicle: 3,
+      lightVehicles: 3,
       heavyVehicle: 0,
       abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove]
     }
@@ -344,14 +344,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: null,
-        lightVehicle: null,
+        lightVehicles: null,
         heavyVehicle: null,
         abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
       }
     ],
     secondaryWeapon: {
       infantry: 5,
-      lightVehicle: 3,
+      lightVehicles: 3,
       heavyVehicle: 2,
       abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
     }
@@ -463,14 +463,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: 4,
-        lightVehicle: 4,
+        lightVehicles: 4,
         heavyVehicle: 2,
         abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
       }
     ],
     secondaryWeapon: {
       infantry: 2,
-      lightVehicle: 5,
+      lightVehicles: 5,
       heavyVehicle: 4,
       abilities: [Ability.Piercing, Ability.FireOnTheMove]
     }
@@ -492,14 +492,14 @@ export const units: Unit[] = [
     primaryWeapons: [
       {
         infantry: 4,
-        lightVehicle: 3,
+        lightVehicles: 3,
         heavyVehicle: 1,
         abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
       }
     ],
     secondaryWeapon: {
       infantry: 2,
-      lightVehicle: 1,
+      lightVehicles: 1,
       heavyVehicle: null,
       abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
     }
