@@ -17,6 +17,16 @@ export enum Type {
   HeavyVehicle = "Heavy Vehicle", // Gray Defence Shield
 }
 
+export enum Release {
+  BM = "Bad Moon Reinforcements",
+  CB = "Core Box",
+  CK = "Cassius and Kragot Promo",
+  ORK = "Ork Reinforcements",
+  ULTRA = "Ultramarine Reinforcements",
+  VSF = "Vanguard Squad & Freebooterz",
+  ZK = "Zoggrim"
+}
+
 export enum Size {
   Individual = "Individual",      // 368x368
   Squad = "Squad",                // 422x422
@@ -34,6 +44,7 @@ export interface Weapon {
 }
 
 export interface Unit {
+  release: Release;
   name: string;
   faction: Faction;
   type: Type;
@@ -52,6 +63,7 @@ export interface Unit {
 
 export const units: Unit[] = [
   {
+    release: Release.CB,
     name: "Ammo Runts",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -66,6 +78,7 @@ export const units: Unit[] = [
     abilities: [Ability.Fragile, Ability.MunitionsCarrier]
   },
   {
+    release: Release.CB,
     name: "Battlewagon",
     faction: Faction.Orks,
     type: Type.HeavyVehicle,
@@ -83,17 +96,18 @@ export const units: Unit[] = [
         infantry: 2,
         lightVehicle: 3,
         heavyVehicle: 2,
-        abilities: [Ability.IndirectFire],
+        abilities: [Ability.IndirectFire]
       }
     ],
     secondaryWeapon: {
       infantry: 3,
       lightVehicle: 3,
       heavyVehicle: 0,
-      abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire],
+      abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire]
     }
   },
   {
+    release: Release.CB,
     name: "Big Shoota",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -108,6 +122,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.SuppressiveFire]
   },
   {
+    release: Release.CB,
     name: "Boss Mob (A)",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -122,6 +137,7 @@ export const units: Unit[] = [
     abilities: [Ability.Order, Ability.Assault, Ability.Tearing]
   },
   {
+    release: Release.CB,
     name: "Boss Mob (B)",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -136,6 +152,7 @@ export const units: Unit[] = [
     abilities: [Ability.Large, Ability.Flying, Ability.Order, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Boss Mob (C)",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -150,6 +167,7 @@ export const units: Unit[] = [
     abilities: [Ability.Order, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Brother Agnathio",
     faction: Faction.Ultramarines,
     type: Type.HeavyVehicle,
@@ -166,17 +184,18 @@ export const units: Unit[] = [
         infantry: 2,
         lightVehicle: 5,
         heavyVehicle: 4,
-        abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove],
+        abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
       }
     ],
     secondaryWeapon: {
       infantry: 2,
       lightVehicle: 1,
       heavyVehicle: 0,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing],
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing]
     }
   },
   {
+    release: Release.CB,
     name: "Brother Millius",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -191,6 +210,7 @@ export const units: Unit[] = [
     abilities: [Ability.Techmarine, Ability.Assault, Ability.Flamethrower, Ability.FireOnTheMove]
   },
   {
+    release: Release.CB,
     name: "Chaplain Orad",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -205,6 +225,7 @@ export const units: Unit[] = [
     abilities: [Ability.Inspiration, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Deff Dread",
     faction: Faction.Orks,
     type: Type.HeavyVehicle,
@@ -228,10 +249,11 @@ export const units: Unit[] = [
       infantry: 3,
       lightVehicle: 3,
       heavyVehicle: 0,
-      abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove],
+      abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove]
     }
   },
   {
+    release: Release.CB,
     name: "Gorkargk",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -246,6 +268,7 @@ export const units: Unit[] = [
     abilities: [Ability.Weirdboy, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Grot Oiler",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -260,6 +283,7 @@ export const units: Unit[] = [
     abilities: [Ability.Fragile, Ability.GrotOilers]
   },
   {
+    release: Release.CB,
     name: "Heavy Bolter",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -274,6 +298,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Killa Kan (A)",
     faction: Faction.Orks,
     type: Type.LightVehicle,
@@ -288,6 +313,7 @@ export const units: Unit[] = [
     abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
   },
   {
+    release: Release.CB,
     name: "Killa Kan (B)",
     faction: Faction.Orks,
     type: Type.LightVehicle,
@@ -302,6 +328,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
   },
   {
+    release: Release.CB,
     name: "Land Raider Redeemer",
     faction: Faction.Ultramarines,
     type: Type.HeavyVehicle,
@@ -326,10 +353,11 @@ export const units: Unit[] = [
       infantry: 5,
       lightVehicle: 3,
       heavyVehicle: 2,
-      abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove],
+      abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
     }
   },
   {
+    release: Release.CB,
     name: "Land Speeder Storm",
     faction: Faction.Ultramarines,
     type: Type.LightVehicle,
@@ -344,6 +372,7 @@ export const units: Unit[] = [
     abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport]
   },
   {
+    release: Release.CB,
     name: "Lascannon",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -358,6 +387,7 @@ export const units: Unit[] = [
     abilities: [Ability.Piercing, Ability.HawkEyed]
   },
   {
+    release: Release.CB,
     name: "Malagrah",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -372,6 +402,7 @@ export const units: Unit[] = [
     abilities: [Ability.Large, Ability.Mekaniak, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
   },
   {
+    release: Release.CB,
     name: "Mek Gun",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -386,6 +417,7 @@ export const units: Unit[] = [
     abilities: [Ability.Large, Ability.LimitedFiringArc, Ability.IndirectFire]
   },
   {
+    release: Release.CB,
     name: "Missile Launcher",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -400,6 +432,7 @@ export const units: Unit[] = [
     abilities: [Ability.Destruction, Ability.Howitzer, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Plasma Gun",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -414,6 +447,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Predator (A)",
     faction: Faction.Ultramarines,
     type: Type.HeavyVehicle,
@@ -431,17 +465,18 @@ export const units: Unit[] = [
         infantry: 4,
         lightVehicle: 4,
         heavyVehicle: 2,
-        abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove],
+        abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
       }
     ],
     secondaryWeapon: {
       infantry: 2,
       lightVehicle: 5,
       heavyVehicle: 4,
-      abilities: [Ability.Piercing, Ability.FireOnTheMove],
+      abilities: [Ability.Piercing, Ability.FireOnTheMove]
     }
   },
   {
+    release: Release.CB,
     name: "Razorback",
     faction: Faction.Ultramarines,
     type: Type.HeavyVehicle,
@@ -466,10 +501,11 @@ export const units: Unit[] = [
       infantry: 2,
       lightVehicle: 1,
       heavyVehicle: null,
-      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove],
+      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
     }
   },
   {
+    release: Release.CB,
     name: "Rhino",
     faction: Faction.Ultramarines,
     type: Type.HeavyVehicle,
@@ -484,6 +520,7 @@ export const units: Unit[] = [
     abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
+    release: Release.CB,
     name: "Rokkit Launcha",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -498,6 +535,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Scout",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -512,6 +550,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Scout Sniper",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -526,6 +565,7 @@ export const units: Unit[] = [
     abilities: [Ability.Sniper, Ability.LimitedRange, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Servius",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -540,6 +580,7 @@ export const units: Unit[] = [
     abilities: [Ability.Librarian, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Servo-Skull Gunner",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -554,6 +595,7 @@ export const units: Unit[] = [
     abilities: [Ability.Flying, Ability.Signum]
   },
   {
+    release: Release.CB,
     name: "Sgt. Elias",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -568,6 +610,7 @@ export const units: Unit[] = [
     abilities: [Ability.Order, Ability.Assault, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Sgt. Telion",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -582,6 +625,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.Sniper, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Sgt. Vorolanus",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -596,6 +640,7 @@ export const units: Unit[] = [
     abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Shootas",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -610,6 +655,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault]
   },
   {
+    release: Release.CB,
     name: "Sluggas",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -624,6 +670,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Squigs",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -638,6 +685,7 @@ export const units: Unit[] = [
     abilities: [Ability.Bodyguard, Ability.Assault, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Stormboyz",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -652,6 +700,7 @@ export const units: Unit[] = [
     abilities: [Ability.Large, Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
   },
   {
+    release: Release.CB,
     name: "Tactical",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -666,6 +715,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
+    release: Release.CB,
     name: "Tankbustas",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -680,6 +730,7 @@ export const units: Unit[] = [
     abilities: [Ability.Assault, Ability.LimitedRange, Ability.Ambush]
   },
   {
+    release: Release.CB,
     name: "Thunderfire Cannon",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
@@ -694,6 +745,7 @@ export const units: Unit[] = [
     abilities: [Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc]
   },
   {
+    release: Release.CB,
     name: "Trukk",
     faction: Faction.Orks,
     type: Type.LightVehicle,
@@ -708,6 +760,7 @@ export const units: Unit[] = [
     abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
   },
   {
+    release: Release.CB,
     name: "Uzdrakh",
     faction: Faction.Orks,
     type: Type.Infantry,
@@ -722,6 +775,7 @@ export const units: Unit[] = [
     abilities: [Ability.Large, Ability.Order, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
   },
   {
+    release: Release.CB,
     name: "Warbuggy",
     faction: Faction.Orks,
     type: Type.LightVehicle,
