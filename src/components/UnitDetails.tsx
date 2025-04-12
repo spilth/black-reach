@@ -27,25 +27,25 @@ const UnitDetails = ({ unit }: { unit: Unit }) =>
   <>
     <h1>{unit.name}</h1>
 
-    {unit.abilities && <>
+    {unit.front.abilities && <>
       <h2>Special Abilities</h2>
 
-      <AbilitiesAccordion abilities={unit.abilities} />
+      <AbilitiesAccordion abilities={unit.front.abilities} />
     </>}
 
-    {unit.primaryWeapons &&
+    {unit.front.primaryWeapons &&
       <>
         <h2>Primary Weapon Abilities</h2>
 
-        <AbilitiesAccordion abilities={unit.primaryWeapons[0].abilities} />
+        <AbilitiesAccordion abilities={unit.front.primaryWeapons[0].abilities} />
       </>
     }
 
-    {unit.secondaryWeapon &&
+    {unit.front.secondaryWeapon &&
       <>
         <h2>Secondary Weapon Abilities</h2>
 
-        <AbilitiesAccordion abilities={unit.secondaryWeapon.abilities} />
+        <AbilitiesAccordion abilities={unit.front.secondaryWeapon.abilities} />
       </>
     }
   </>;
