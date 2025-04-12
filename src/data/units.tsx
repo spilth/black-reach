@@ -56,6 +56,22 @@ export interface Front {
   secondaryWeapon?: Weapon | null;
 }
 
+export interface Back {
+  image: string;
+}
+
+export interface Reduced extends Back {
+
+}
+
+export interface Active extends Back {
+
+}
+
+export interface Wrecked extends Back {
+
+}
+
 export interface Unit {
   release: Release;
   name: string;
@@ -64,6 +80,7 @@ export interface Unit {
   role: Role;
   size: Size;
   front: Front;
+  back?: Reduced | Active | Wrecked;
 }
 
 export const units: Unit[] = [
@@ -75,7 +92,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/ammo-runts.jpg",
+      image: "cb/ammo-runts-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 0,
@@ -92,7 +109,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/battlewagon.jpg",
+      image: "cb/battlewagon-front.jpg",
       movement: 4,
       defence: 8,
       infantry: null,
@@ -123,7 +140,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/big-shoota.jpg",
+      image: "cb/big-shoota-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 3,
@@ -140,7 +157,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/boss-mob-a.jpg",
+      image: "cb/boss-mob-a-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -157,7 +174,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/boss-mob-b.jpg",
+      image: "cb/boss-mob-b-front.jpg",
       movement: 5,
       defence: 6,
       infantry: 2,
@@ -174,7 +191,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/boss-mob-c.jpg",
+      image: "cb/boss-mob-c-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -191,7 +208,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Mech,
     front: {
-      image: "cb/brother-agnathio.jpg",
+      image: "cb/brother-agnathio-front.jpg",
       movement: 3,
       defence: 8,
       infantry: null,
@@ -221,7 +238,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/brother-millius.jpg",
+      image: "cb/brother-millius-front.jpg",
       movement: 3,
       defence: 6,
       infantry: 2,
@@ -238,7 +255,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/chaplain-orad.jpg",
+      image: "cb/chaplain-orad-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -255,7 +272,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Mech,
     front: {
-      image: "cb/deff-dread.jpg",
+      image: "cb/deff-dread-front.jpg",
       movement: 3,
       defence: 8,
       infantry: null,
@@ -285,7 +302,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/gorkargk.jpg",
+      image: "cb/gorkargk-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -302,7 +319,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/grot-oiler.jpg",
+      image: "cb/grot-oiler-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 0,
@@ -319,7 +336,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/heavy-bolter.jpg",
+      image: "cb/heavy-bolter-front.jpg",
       movement: 3,
       defence: 5,
       infantry: 4,
@@ -336,7 +353,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/killa-kan-a.jpg",
+      image: "cb/killa-kan-a-front.jpg",
       movement: 3,
       defence: 8,
       infantry: 3,
@@ -353,7 +370,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/killa-kan-b.jpg",
+      image: "cb/killa-kan-b-front.jpg",
       movement: 3,
       defence: 8,
       infantry: 4,
@@ -370,7 +387,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.LargeVehicle,
     front: {
-      image: "cb/land-raider-redeemer.jpg",
+      image: "cb/land-raider-redeemer-front.jpg",
       movement: 4,
       defence: 9,
       infantry: null,
@@ -401,7 +418,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/land-speeder-storm.jpg",
+      image: "cb/land-speeder-storm-front.jpg",
       movement: 8,
       defence: 8,
       infantry: 4,
@@ -418,7 +435,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/lascannon.jpg",
+      image: "cb/lascannon-front.jpg",
       movement: 3,
       defence: 5,
       infantry: 3,
@@ -435,7 +452,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/malagrah.jpg",
+      image: "cb/malagrah-front.jpg",
       movement: 3,
       defence: 7,
       infantry: 3,
@@ -452,7 +469,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/mek-gun.jpg",
+      image: "cb/mek-gun-front.jpg",
       movement: 2,
       defence: 6,
       infantry: 1,
@@ -469,7 +486,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/missile-launcher.jpg",
+      image: "cb/missile-launcher-front.jpg",
       movement: 4,
       defence: 5,
       infantry: 3,
@@ -486,7 +503,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/plasma-gun.jpg",
+      image: "cb/plasma-gun-front.jpg",
       movement: 3,
       defence: 6,
       infantry: 3,
@@ -503,7 +520,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/predator-a.jpg",
+      image: "cb/predator-a-front.jpg",
       movement: 4,
       defence: 8,
       infantry: null,
@@ -534,7 +551,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/razorback.jpg",
+      image: "cb/razorback-front.jpg",
       movement: 6,
       defence: 7,
       infantry: null,
@@ -565,7 +582,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/rhino.jpg",
+      image: "cb/rhino-front.jpg",
       movement: 6,
       defence: 7,
       infantry: 2,
@@ -582,7 +599,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/rokkit-launcha.jpg",
+      image: "cb/rokkit-launcha-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 1,
@@ -599,7 +616,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/scout.jpg",
+      image: "cb/scout-front.jpg",
       movement: 4,
       defence: 5,
       infantry: 3,
@@ -616,7 +633,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/scout-sniper.jpg",
+      image: "cb/scout-sniper-front.jpg",
       movement: 4,
       defence: 5,
       infantry: 2,
@@ -633,7 +650,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/servius.jpg",
+      image: "cb/servius-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -650,7 +667,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/servo-skull-gunner.jpg",
+      image: "cb/servo-skull-gunner-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 1,
@@ -667,7 +684,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/sgt-elias.jpg",
+      image: "cb/sgt-elias-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -684,7 +701,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/sgt-telion.jpg",
+      image: "cb/sgt-telion-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -701,7 +718,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "cb/sgt-vorolanus.jpg",
+      image: "cb/sgt-vorolanus-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -718,7 +735,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/shootas.jpg",
+      image: "cb/shootas-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 1,
@@ -735,7 +752,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/sluggas.jpg",
+      image: "cb/sluggas-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 1,
@@ -752,7 +769,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "cb/squigs.jpg",
+      image: "cb/squigs-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 4,
@@ -769,7 +786,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/stormboyz.jpg",
+      image: "cb/stormboyz-front.jpg",
       movement: 5,
       defence: 4,
       infantry: 1,
@@ -786,7 +803,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "cb/tactical.jpg",
+      image: "cb/tactical-front.jpg",
       movement: 3,
       defence: 5,
       infantry: 3,
@@ -803,7 +820,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/tankbustas.jpg",
+      image: "cb/tankbustas-front.jpg",
       movement: 3,
       defence: 5,
       infantry: 1,
@@ -820,7 +837,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "cb/thunderfire-cannon.jpg",
+      image: "cb/thunderfire-cannon-front.jpg",
       movement: 2,
       defence: 6,
       infantry: 3,
@@ -837,7 +854,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/trukk.jpg",
+      image: "cb/trukk-front.jpg",
       movement: 6,
       defence: 8,
       infantry: 3,
@@ -854,7 +871,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Squad,
     front: {
-      image: "cb/uzdrakh.jpg",
+      image: "cb/uzdrakh-front.jpg",
       movement: 3,
       defence: 7,
       infantry: 3,
@@ -871,7 +888,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "cb/warbuggy.jpg",
+      image: "cb/warbuggy-front.jpg",
       movement: 6,
       defence: 5,
       infantry: 3,
@@ -888,7 +905,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "bm/big-shoota.jpg",
+      image: "bm/big-shoota-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 3,
@@ -905,7 +922,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Individual,
     front: {
-      image: "bm/bomb-squigs.jpg",
+      image: "bm/bomb-squigs-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 3,
@@ -922,7 +939,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.LongVehicle,
     front: {
-      image: "bm/grot-mega-tank.jpg",
+      image: "bm/grot-mega-tank-front.jpg",
       movement: 5,
       defence: 7,
       infantry: null,
@@ -953,7 +970,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/grot-tank-a.jpg",
+      image: "bm/grot-tank-a-front.jpg",
       movement: 5,
       defence: 7,
       infantry: 1,
@@ -970,7 +987,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/grot-tank-b.jpg",
+      image: "bm/grot-tank-b-front.jpg",
       movement: 5,
       defence: 7,
       infantry: 1,
@@ -987,7 +1004,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/grot-tank-c.jpg",
+      image: "bm/grot-tank-c-front.jpg",
       movement: 5,
       defence: 7,
       infantry: 3,
@@ -1004,7 +1021,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/killa-kan-a.jpg",
+      image: "bm/killa-kan-a-front.jpg",
       movement: 3,
       defence: 8,
       infantry: 3,
@@ -1021,7 +1038,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/killa-kan-b.jpg",
+      image: "bm/killa-kan-b-front.jpg",
       movement: 3,
       defence: 8,
       infantry: 4,
@@ -1038,7 +1055,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Squad,
     front: {
-      image: "bm/killa-kan-c.jpg",
+      image: "bm/killa-kan-c-front.jpg",
       movement: 3,
       defence: 8,
       infantry: 3,
@@ -1055,7 +1072,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Squad,
     front: {
-    image: "bm/mega-nob-a.jpg",
+    image: "bm/mega-nob-a-front.jpg",
     movement: 3,
     defence: 6,
     infantry: 2,
@@ -1072,7 +1089,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Squad,
     front: {
-      image: "bm/mega-nob-b.jpg",
+      image: "bm/mega-nob-b-front.jpg",
       movement: 3,
       defence: 6,
       infantry: 2,
@@ -1089,7 +1106,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Squad,
     front: {
-      image: "bm/mega-nob-c.jpg",
+      image: "bm/mega-nob-c-front.jpg",
       movement: 3,
       defence: 6,
       infantry: 3,
@@ -1106,7 +1123,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Mech,
     front: {
-      image: "bm/meka-dread.jpg",
+      image: "bm/meka-dread-front.jpg",
       movement: 3,
       defence: 8,
       infantry: null,
@@ -1137,7 +1154,7 @@ export const units: Unit[] = [
     role: Role.HeavyWeapons,
     size: Size.Squad,
     front: {
-      image: "bm/rokkit-launcha.jpg",
+      image: "bm/rokkit-launcha-front.jpg",
       movement: 3,
       defence: 4,
       infantry: 1,
@@ -1154,7 +1171,7 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Individual,
     front: {
-      image: "bm/skaablitz.jpg",
+      image: "bm/skaablitz-front.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -1171,7 +1188,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.SmallTitan,
     front: {
-      image: "bm/stompa.jpg",
+      image: "bm/stompa-front.jpg",
       movement: 2,
       defence: 9,
       infantry: null,
@@ -1208,7 +1225,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.LongVehicle,
     front: {
-      image: "bm/trukk.jpg",
+      image: "bm/trukk-front.jpg",
       movement: 6,
       defence: 8,
       infantry: 3,
@@ -1225,7 +1242,7 @@ export const units: Unit[] = [
     role: Role.Regular,
     size: Size.Vehicle,
     front: {
-      image: "bm/warbuggy.jpg",
+      image: "bm/warbuggy-front.jpg",
       movement: 6,
       defence: 5,
       infantry: 3,
