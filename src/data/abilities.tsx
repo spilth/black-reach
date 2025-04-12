@@ -33,6 +33,9 @@ import { TwinLinked } from "../components/abilities/TwinLinked.tsx";
 import { Demolishing } from "../components/abilities/Demolishing.tsx";
 import { Charge } from "../components/abilities/Charge.tsx";
 import { NoWeakPoint } from "../components/abilities/NoWeakPoint.tsx";
+import { Explosion } from "../components/abilities/Explosion.tsx";
+import { PersonalOrder } from "../components/abilities/PersonalOrder.tsx";
+import { Titan } from "../components/abilities/Titan.tsx";
 
 export enum Ability {
   Ambush = "Ambush",
@@ -42,6 +45,7 @@ export enum Ability {
   Demolishing = "Demolishing",
   Destruction = "Destruction",
   DoubleFire = "Double Fire",
+  Explosion = "Explosion",
   FireOnTheMove = "Fire on the Move",
   Flamethrower = "Flamethrower",
   Fragile = "Fragile",
@@ -61,12 +65,14 @@ export enum Ability {
   MunitionsCarrier = "Munitions Carrier",
   NoWeakPoint = "No Weak Point",
   Order = "Order",
+  PersonalOrder = "Personal Order",
   Piercing = "Piercing",
   Signum = "Signum",
   Sniper = "Sniper",
   SuppressiveFire = "Suppressive Fire",
   Techmarine = "Techmarine",
   Tearing = "Tearing",
+  Titan = "Titan",
   Transport = "Transport",
   TwinLinked = "Twin Linked",
   Weirdboy = "Weirdboy",
@@ -80,6 +86,7 @@ export const abilityComponents = {
   [Ability.Demolishing]: Demolishing,
   [Ability.Destruction]: Destruction,
   [Ability.DoubleFire]: DoubleFire,
+  [Ability.Explosion]: Explosion,
   [Ability.FireOnTheMove]: FireOnTheMove,
   [Ability.Flamethrower]: Flamethrower,
   [Ability.Fragile]: Fragile,
@@ -99,12 +106,14 @@ export const abilityComponents = {
   [Ability.MunitionsCarrier]: MunitionsCarrier,
   [Ability.NoWeakPoint]: NoWeakPoint,
   [Ability.Order]: Order,
+  [Ability.PersonalOrder]: PersonalOrder,
   [Ability.Piercing]: Piercing,
   [Ability.Signum]: Signum,
   [Ability.Sniper]: Sniper,
   [Ability.SuppressiveFire]: SuppressiveFire,
   [Ability.Tearing]: Tearing,
   [Ability.Techmarine]: Techmarine,
+  [Ability.Titan]: Titan,
   [Ability.Transport]: Transport,
   [Ability.TwinLinked]: TwinLinked,
   [Ability.Weirdboy]: Weirdboy
