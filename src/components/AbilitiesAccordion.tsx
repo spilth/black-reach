@@ -6,7 +6,6 @@ import React from "react";
 const abilityImageName = (ability: Ability) => ability.toLowerCase().replace(/ /g, "");
 
 export const AbilitiesAccordion = ({ abilities }: { abilities: Ability[] }) => {
-  console.log(abilities)
   return (
     <Accordion className="mb-4">
       {abilities.map(ability => (
