@@ -36,6 +36,7 @@ import { NoWeakPoint } from "../components/abilities/NoWeakPoint.tsx";
 import { Explosion } from "../components/abilities/Explosion.tsx";
 import { PersonalOrder } from "../components/abilities/PersonalOrder.tsx";
 import { Titan } from "../components/abilities/Titan.tsx";
+import { LongDistanceAssault } from "../components/abilities/LongDistanceAssault.tsx";
 
 export enum Ability {
   Ambush = "Ambush",
@@ -60,6 +61,7 @@ export enum Ability {
   Librarian = "Librarian",
   LimitedFiringArc = "Limited Firing Arc",
   LimitedRange = "Limited Range",
+  LongDistanceAssault = "Long Distance Assault",
   MachineGunner = "Machine Gunner",
   Mekaniak = "Mekaniak",
   MunitionsCarrier = "Munitions Carrier",
@@ -101,6 +103,7 @@ export const abilityComponents = {
   [Ability.Librarian]: Librarian,
   [Ability.LimitedFiringArc]: LimitedFiringArc,
   [Ability.LimitedRange]: LimitedRange,
+  [Ability.LongDistanceAssault]: LongDistanceAssault,
   [Ability.MachineGunner]: MachineGunner,
   [Ability.Mekaniak]: Mekaniak,
   [Ability.MunitionsCarrier]: MunitionsCarrier,

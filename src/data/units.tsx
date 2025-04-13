@@ -1279,7 +1279,7 @@ export const units: Unit[] = [
           infantry: 4,
           lightVehicles: 6,
           heavyVehicles: 5,
-          abilities: [Ability.Charge, Ability.LimitedRange, Ability.Destruction, Ability.Tearing]
+          abilities: [Ability.LongDistanceAssault, Ability.LimitedRange, Ability.Demolishing, Ability.Assault, Ability.Tearing]
         }
       ],
       secondaryWeapon: {
