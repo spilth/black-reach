@@ -375,6 +375,12 @@ export const units: Unit[] = [
           lightVehicles: null,
           heavyVehicles: null,
           abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
+        },
+        {
+          infantry: null,
+          lightVehicles: null,
+          heavyVehicles: null,
+          abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
         }
       ],
       secondaryWeapon: {
