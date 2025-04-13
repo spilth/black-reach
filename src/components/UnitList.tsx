@@ -1,9 +1,13 @@
 import React from "react";
-import { Faction, Release, type Unit, units } from "../data/units.tsx";
-import { Accordion } from "react-bootstrap";
-import UnitDetails from "./UnitDetails.tsx";
+import { units } from "../data/units.tsx";
+import { Accordion, Tab, Tabs } from "react-bootstrap";
+import FrontDetails from "./FrontDetails.tsx";
 import { FactionAccordionItem } from "./FactionAccordionItem.tsx";
-import { UnitTokenImage } from "./UnitTokenImage.tsx";
+import { FrontTokenImage } from "./FrontTokenImage.tsx";
+import { Faction, Release } from "../data/enums.tsx";
+import type { Unit } from "../data/interfaces.tsx";
+import { BackTokenImage } from "./BackTokenImage.tsx";
+import BackDetails from "./BackDetails.tsx";
 
 const UnitList = () => {
   const cbUltramarines = units.filter(unit => unit.release == Release.CB && unit.faction == Faction.Ultramarines);
@@ -31,11 +35,33 @@ const UnitList = () => {
 
         </Accordion>
       </div>
-      <div className="col-5 col-lg-5 p-2">
-        <UnitDetails unit={selectedUnit} />
-      </div>
-      <div className="col-4 col-lg-5 p-2">
-        <UnitTokenImage unit={selectedUnit} />
+      <div className="col-9 col-lg-10 p-2">
+        <h1>{selectedUnit.name}</h1>
+
+        <Tabs id="unit-tokens" defaultActiveKey="front" className="mb-2">
+          <Tab eventKey="front" title="Front">
+            <div className="row">
+              <div className="col">
+                <FrontDetails unit={selectedUnit} />
+              </div>
+              <div className="col">
+                <FrontTokenImage unit={selectedUnit} />
+              </div>
+            </div>
+          </Tab>
+          {selectedUnit.back && (
+            <Tab eventKey="back" title="Back">
+              <div className="row">
+                <div className="col">
+                  <BackDetails unit={selectedUnit} />
+                </div>
+                <div className="col">
+                  <BackTokenImage unit={selectedUnit} />
+                </div>
+              </div>
+            </Tab>
+          )}
+        </Tabs>
       </div>
     </div>
   </div>;

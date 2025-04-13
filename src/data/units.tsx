@@ -1,66 +1,7 @@
 import { Ability } from "./abilities.tsx";
-
-export enum Faction {
-  Ultramarines = "Ultramarines",
-  Orks = "Orks",
-}
-
-export enum Role {
-  Regular = "Regular",           // Faction Color
-  Leader = "Leader",             // Yellow
-  HeavyWeapons = "Heavy Weapons" // Red
-}
-
-export enum Type {
-  Infantry = "Infantry",          // Yellow Defence Shield
-  LightVehicle = "Light Vehicle", // Red Defence Shield
-  HeavyVehicle = "Heavy Vehicle", // Gray Defence Shield
-}
-
-export enum Release {
-  BM = "Bad Moon Reinforcements",
-  CB = "Core Box",
-  CK = "Cassius and Kragot Promo",
-  ORK = "Ork Reinforcements",
-  ULTRA = "Ultramarine Reinforcements",
-  VSF = "Vanguard Squad & Freebooterz",
-  ZK = "Zoggrim"
-}
-
-export enum Size {
-  Individual = "Individual",      // 368x368
-  Squad = "Squad",                // 422x422
-  Mech = "Mech",                  // 552x422
-  Vehicle = "Vehicle",            // 472x768
-  LargeVehicle = "Large Vehicle", // 906x906
-  LongVehicle = "Long Vehicle",   // 466x929
-  SmallTitan = "Small Titan",     // 1400x1400
-}
-
-export interface Weapon {
-  infantry: number | null;
-  lightVehicles: number | null;
-  heavyVehicles: number | null;
-  abilities: Ability[];
-}
-
-export interface Unit {
-  release: Release;
-  name: string;
-  faction: Faction;
-  type: Type;
-  role: Role;
-  size: Size;
-  image: string;
-  movement: number;
-  defence: number;
-  infantry: number | null;
-  lightVehicles: number | null;
-  heavyVehicles: number | null;
-  abilities?: Ability[];
-  primaryWeapons?: Weapon[];
-  secondaryWeapon?: Weapon | null;
-}
+import { TerrainEffect } from "./terrainEffects.tsx";
+import { Faction, Release, Role, Size, Type } from "./enums.tsx";
+import type { Unit } from "./interfaces.tsx";
 
 export const units: Unit[] = [
   {
@@ -70,13 +11,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/ammo-runts.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 0,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.Fragile, Ability.MunitionsCarrier]
+    front: {
+      image: "cb/ammo-runts-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 0,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.Fragile, Ability.MunitionsCarrier]
+    }
   },
   {
     release: Release.CB,
@@ -85,26 +28,28 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/battlewagon.jpg",
-    movement: 4,
-    defence: 8,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.Transport],
-    primaryWeapons: [
-      {
-        infantry: 2,
+    front: {
+      image: "cb/battlewagon-front.jpg",
+      movement: 4,
+      defence: 8,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.Transport],
+      primaryWeapons: [
+        {
+          infantry: 2,
+          lightVehicles: 3,
+          heavyVehicles: 2,
+          abilities: [Ability.IndirectFire]
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 3,
         lightVehicles: 3,
-        heavyVehicles: 2,
-        abilities: [Ability.IndirectFire]
+        heavyVehicles: 0,
+        abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 3,
-      lightVehicles: 3,
-      heavyVehicles: 0,
-      abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire]
     }
   },
   {
@@ -114,13 +59,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/big-shoota.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.Assault, Ability.SuppressiveFire]
+    front: {
+      image: "cb/big-shoota-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire]
+    }
   },
   {
     release: Release.CB,
@@ -129,13 +76,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/boss-mob-a.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Order, Ability.Assault, Ability.Tearing]
+    front: {
+      image: "cb/boss-mob-a-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Assault, Ability.Tearing]
+    }
   },
   {
     release: Release.CB,
@@ -144,13 +93,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/boss-mob-b.jpg",
-    movement: 5,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Large, Ability.Flying, Ability.Order, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/boss-mob-b-front.jpg",
+      movement: 5,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Large, Ability.Flying, Ability.Order, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -159,13 +110,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/boss-mob-c.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Order, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/boss-mob-c-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Order, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -174,25 +127,32 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Mech,
-    image: "cb/brother-agnathio.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    primaryWeapons: [
-      {
+    front: {
+      image: "cb/brother-agnathio-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [],
+      primaryWeapons: [
+        {
+          infantry: 2,
+          lightVehicles: 5,
+          heavyVehicles: 4,
+          abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
+        }
+      ],
+      secondaryWeapon: {
         infantry: 2,
-        lightVehicles: 5,
-        heavyVehicles: 4,
-        abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
+        lightVehicles: 1,
+        heavyVehicles: 0,
+        abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 2,
-      lightVehicles: 1,
-      heavyVehicles: 0,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.Demolishing]
+    },
+    back: {
+      image: "cb/brother-agnathio-back.jpg",
+      terrainEffects: [TerrainEffect.DefensiveBonus, TerrainEffect.Structure, TerrainEffect.ObstacleObscures, TerrainEffect.ImpassableToSomeUnits]
     }
   },
   {
@@ -202,13 +162,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/brother-millius.jpg",
-    movement: 3,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 2,
-    heavyVehicles: 2,
-    abilities: [Ability.Techmarine, Ability.Assault, Ability.Flamethrower, Ability.FireOnTheMove]
+    front: {
+      image: "cb/brother-millius-front.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 2,
+      abilities: [Ability.Techmarine, Ability.Assault, Ability.Flamethrower, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/brother-millius-back.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 2,
+      abilities: [Ability.Techmarine, Ability.Assault, Ability.Flamethrower, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.CB,
@@ -217,13 +188,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/chaplain-orad.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 2,
-    heavyVehicles: 1,
-    abilities: [Ability.Inspiration, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/chaplain-orad-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 1,
+      abilities: [Ability.Inspiration, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/chaplain-orad-back.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 1,
+      abilities: [Ability.Inspiration, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -232,25 +214,28 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Mech,
-    image: "cb/deff-dread.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    primaryWeapons: [
-      {
-        infantry: 1,
-        lightVehicles: 4,
-        heavyVehicles: 4,
-        abilities: [Ability.Demolishing, Ability.LimitedRange]
+    front: {
+      image: "cb/deff-dread-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [],
+      primaryWeapons: [
+        {
+          infantry: 1,
+          lightVehicles: 4,
+          heavyVehicles: 4,
+          abilities: [Ability.Demolishing, Ability.LimitedRange]
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 3,
+        lightVehicles: 3,
+        heavyVehicles: 0,
+        abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 3,
-      lightVehicles: 3,
-      heavyVehicles: 0,
-      abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove]
     }
   },
   {
@@ -260,13 +245,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/gorkargk.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 2,
-    heavyVehicles: 0,
-    abilities: [Ability.Weirdboy, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/gorkargk-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Weirdboy, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -275,28 +262,63 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/grot-oiler.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 0,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.Fragile, Ability.GrotOilers]
+    front: {
+      image: "cb/grot-oiler-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 0,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.Fragile, Ability.GrotOilers]
+    }
   },
   {
     release: Release.CB,
-    name: "Heavy Bolter",
+    name: "Heavy Bolter (A)",
     faction: Faction.Ultramarines,
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/heavy-bolter.jpg",
-    movement: 3,
-    defence: 5,
-    infantry: 4,
-    lightVehicles: 3,
-    heavyVehicles: 1,
-    abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
+    front: {
+      image: "cb/heavy-bolter-a-front.jpg",
+      movement: 4,
+      defence: 5,
+      infantry: 4,
+      lightVehicles: 3,
+      heavyVehicles: 1,
+      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
+    },
+    back: {
+      image: "cb/heavy-bolter-a-back.jpg",
+      movement: 4,
+      abilities: []
+    }
+  },
+  {
+    release: Release.CB,
+    name: "Heavy Bolter (B)",
+    faction: Faction.Ultramarines,
+    type: Type.Infantry,
+    role: Role.HeavyWeapons,
+    size: Size.Squad,
+    front: {
+      image: "cb/heavy-bolter-b-front.jpg",
+      movement: 3,
+      defence: 5,
+      infantry: 4,
+      lightVehicles: 3,
+      heavyVehicles: 1,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    },
+    back: {
+      image: "cb/heavy-bolter-b-back.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    }
   },
   {
     release: Release.CB,
@@ -305,13 +327,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/killa-kan-a.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: 1,
-    abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    front: {
+      image: "cb/killa-kan-a-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 1,
+      abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.CB,
@@ -320,13 +344,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/killa-kan-b.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: 4,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+    front: {
+      image: "cb/killa-kan-b-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: 4,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.CB,
@@ -335,26 +361,32 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.LargeVehicle,
-    image: "cb/land-raider-redeemer.jpg",
-    movement: 4,
-    defence: 9,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.NoWeakPoint, Ability.Transport],
-    primaryWeapons: [
-      {
-        infantry: null,
-        lightVehicles: null,
-        heavyVehicles: null,
-        abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
+    front: {
+      image: "cb/land-raider-redeemer-front.jpg",
+      movement: 4,
+      defence: 9,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.NoWeakPoint, Ability.Transport],
+      primaryWeapons: [
+        {
+          infantry: null,
+          lightVehicles: null,
+          heavyVehicles: null,
+          abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 5,
+        lightVehicles: 3,
+        heavyVehicles: 2,
+        abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 5,
-      lightVehicles: 3,
-      heavyVehicles: 2,
-      abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/land-raider-redeemer-back.jpg",
+      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
     }
   },
   {
@@ -364,13 +396,23 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/land-speeder-storm.jpg",
-    movement: 8,
-    defence: 8,
-    infantry: 4,
-    lightVehicles: 3,
-    heavyVehicles: 1,
-    abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport]
+    front: {
+      image: "cb/land-speeder-storm-front.jpg",
+      movement: 8,
+      defence: 8,
+      infantry: 4,
+      lightVehicles: 3,
+      heavyVehicles: 1,
+      abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport]
+    },
+    back: {
+      image: "cb/land-speeder-storm-back.jpg",
+      movement: null,
+      infantry: 4,
+      lightVehicles: 3,
+      heavyVehicles: 1,
+      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport]
+    }
   },
   {
     release: Release.CB,
@@ -379,13 +421,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/lascannon.jpg",
-    movement: 3,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 5,
-    heavyVehicles: 4,
-    abilities: [Ability.Piercing, Ability.HawkEyed]
+    front: {
+      image: "cb/lascannon-front.jpg",
+      movement: 3,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 5,
+      heavyVehicles: 4,
+      abilities: [Ability.Piercing, Ability.HawkEyed]
+    },
+    back: {
+      image: "cb/lascannon-back.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 4,
+      heavyVehicles: 3,
+      abilities: [Ability.Piercing, Ability.HawkEyed]
+    }
   },
   {
     release: Release.CB,
@@ -394,13 +447,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/malagrah.jpg",
-    movement: 3,
-    defence: 7,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: 2,
-    abilities: [Ability.Large, Ability.Mekaniak, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    front: {
+      image: "cb/malagrah-front.jpg",
+      movement: 3,
+      defence: 7,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: 2,
+      abilities: [Ability.Large, Ability.Mekaniak, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.CB,
@@ -409,13 +464,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/mek-gun.jpg",
-    movement: 2,
-    defence: 6,
-    infantry: 1,
-    lightVehicles: 0,
-    heavyVehicles: null,
-    abilities: [Ability.Large, Ability.LimitedFiringArc, Ability.IndirectFire]
+    front: {
+      image: "cb/mek-gun-front.jpg",
+      movement: 2,
+      defence: 6,
+      infantry: 1,
+      lightVehicles: 0,
+      heavyVehicles: null,
+      abilities: [Ability.Large, Ability.LimitedFiringArc, Ability.IndirectFire]
+    }
   },
   {
     release: Release.CB,
@@ -424,13 +481,20 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/missile-launcher.jpg",
-    movement: 4,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Destruction, Ability.Howitzer, Ability.Ambush]
+    front: {
+      image: "cb/missile-launcher-front.jpg",
+      movement: 4,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Destruction, Ability.Howitzer, Ability.Ambush]
+    },
+    back: {
+      image: "cb/missile-launcher-back.jpg",
+      movement: 4,
+      abilities: []
+    }
   },
   {
     release: Release.CB,
@@ -439,13 +503,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/plasma-gun.jpg",
-    movement: 3,
-    defence: 6,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: 2,
-    abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
+    front: {
+      image: "cb/plasma-gun-front.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: 2,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
+    },
+    back: {
+      image:  "cb/plasma-gun-back.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 3,
+      heavyVehicles: 2,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -454,26 +529,32 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/predator-a.jpg",
-    movement: 4,
-    defence: 8,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [],
-    primaryWeapons: [
-      {
-        infantry: 4,
-        lightVehicles: 4,
-        heavyVehicles: 2,
-        abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    front: {
+      image: "cb/predator-a-front.jpg",
+      movement: 4,
+      defence: 8,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [],
+      primaryWeapons: [
+        {
+          infantry: 4,
+          lightVehicles: 4,
+          heavyVehicles: 2,
+          abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 2,
+        lightVehicles: 5,
+        heavyVehicles: 4,
+        abilities: [Ability.Piercing, Ability.FireOnTheMove]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 2,
-      lightVehicles: 5,
-      heavyVehicles: 4,
-      abilities: [Ability.Piercing, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/predator-a-back.jpg",
+      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
     }
   },
   {
@@ -483,26 +564,32 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/razorback.jpg",
-    movement: 6,
-    defence: 7,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.Transport],
-    primaryWeapons: [
-      {
-        infantry: 4,
-        lightVehicles: 3,
-        heavyVehicles: 1,
-        abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
-      }
-    ],
-    secondaryWeapon: {
-      infantry: 2,
-      lightVehicles: 1,
+    front: {
+      image: "cb/razorback-front.jpg",
+      movement: 6,
+      defence: 7,
+      infantry: null,
+      lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
+      abilities: [Ability.Transport],
+      primaryWeapons: [
+        {
+          infantry: 4,
+          lightVehicles: 3,
+          heavyVehicles: 1,
+          abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 2,
+        lightVehicles: 1,
+        heavyVehicles: null,
+        abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
+      }
+    },
+    back: {
+      image: "cb/razorback-back.jpg",
+      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
     }
   },
   {
@@ -512,13 +599,19 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/rhino.jpg",
-    movement: 6,
-    defence: 7,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: null,
-    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    front: {
+      image: "cb/rhino-front.jpg",
+      movement: 6,
+      defence: 7,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: null,
+      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    },
+    back: {
+      image: "cb/rhino-back.jpg",
+      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
+    }
   },
   {
     release: Release.CB,
@@ -527,13 +620,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/rokkit-launcha.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 1,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
+    front: {
+      image: "cb/rokkit-launcha-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -542,13 +637,20 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/scout.jpg",
-    movement: 4,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: null,
-    abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
+    front: {
+      image: "cb/scout-front.jpg",
+      movement: 4,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.Ambush]
+    },
+    back: {
+      image: "cb/scout-back.jpg",
+      movement: 4,
+      abilities: []
+    }
   },
   {
     release: Release.CB,
@@ -557,13 +659,20 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/scout-sniper.jpg",
-    movement: 4,
-    defence: 5,
-    infantry: 2,
-    lightVehicles: 0,
-    heavyVehicles: null,
-    abilities: [Ability.Sniper, Ability.LimitedRange, Ability.Ambush]
+    front: {
+      image: "cb/scout-sniper-front.jpg",
+      movement: 4,
+      defence: 5,
+      infantry: 2,
+      lightVehicles: 0,
+      heavyVehicles: null,
+      abilities: [Ability.Sniper, Ability.LimitedRange, Ability.Ambush]
+    },
+    back: {
+      image: "cb/scout-sniper-back.jpg",
+      movement: 4,
+      abilities: [Ability.Sniper]
+    }
   },
   {
     release: Release.CB,
@@ -572,13 +681,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/servius.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Librarian, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/servius-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Librarian, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/servius-back.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Librarian, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -587,13 +707,18 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/servo-skull-gunner.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 1,
-    lightVehicles: 0,
-    heavyVehicles: null,
-    abilities: [Ability.Flying, Ability.Signum]
+    front: {
+      image: "cb/servo-skull-gunner-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 1,
+      lightVehicles: 0,
+      heavyVehicles: null,
+      abilities: [Ability.Flying, Ability.Signum]
+    },
+    back: {
+      image: "cb/servo-skull-gunner-back.jpg",
+    }
   },
   {
     release: Release.CB,
@@ -602,13 +727,18 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/sgt-elias.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: null,
-    abilities: [Ability.Order, Ability.Assault, Ability.Ambush]
+    front: {
+      image: "cb/sgt-elias-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: null,
+      abilities: [Ability.Order, Ability.Assault, Ability.Ambush]
+    },
+    back: {
+      image: "cb/sgt-elias-back.jpg",
+    }
   },
   {
     release: Release.CB,
@@ -617,13 +747,20 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/sgt-telion.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Assault, Ability.Sniper, Ability.Ambush]
+    front: {
+      image: "cb/sgt-telion-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Assault, Ability.Sniper, Ability.Ambush]
+    },
+    back: {
+      image: "cb/sgt-telion-back.jpg",
+      movement: 4,
+      abilities: [Ability.Sniper]
+    }
   },
   {
     release: Release.CB,
@@ -632,13 +769,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "cb/sgt-vorolanus.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange]
+    front: {
+      image: "cb/sgt-vorolanus-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/sgt-vorolanus-back.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -647,13 +795,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/shootas.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 1,
-    lightVehicles: 1,
-    heavyVehicles: null,
-    abilities: [Ability.Assault]
+    front: {
+      image: "cb/shootas-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 1,
+      heavyVehicles: null,
+      abilities: [Ability.Assault]
+    }
   },
   {
     release: Release.CB,
@@ -662,13 +812,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/sluggas.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 1,
-    lightVehicles: 1,
-    heavyVehicles: null,
-    abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    front: {
+      image: "cb/sluggas-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 1,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -677,13 +829,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "cb/squigs.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 4,
-    lightVehicles: 2,
-    heavyVehicles: null,
-    abilities: [Ability.Bodyguard, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "cb/squigs-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 4,
+      lightVehicles: 2,
+      heavyVehicles: null,
+      abilities: [Ability.Bodyguard, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -692,13 +846,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/stormboyz.jpg",
-    movement: 5,
-    defence: 4,
-    infantry: 1,
-    lightVehicles: 1,
-    heavyVehicles: 0,
-    abilities: [Ability.Large, Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    front: {
+      image: "cb/stormboyz-front.jpg",
+      movement: 5,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Large, Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    }
   },
   {
     release: Release.CB,
@@ -707,13 +863,24 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Squad,
-    image: "cb/tactical.jpg",
-    movement: 3,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: 0,
-    abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    front: {
+      image: "cb/tactical-front.jpg",
+      movement: 3,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    },
+    back: {
+      image: "cb/tactical-back.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    }
   },
   {
     release: Release.CB,
@@ -722,13 +889,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/tankbustas.jpg",
-    movement: 3,
-    defence: 5,
-    infantry: 1,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.LimitedRange, Ability.Ambush]
+    front: {
+      image: "cb/tankbustas-front.jpg",
+      movement: 3,
+      defence: 5,
+      infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.LimitedRange, Ability.Ambush]
+    }
   },
   {
     release: Release.CB,
@@ -737,13 +906,18 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "cb/thunderfire-cannon.jpg",
-    movement: 2,
-    defence: 6,
-    infantry: 3,
-    lightVehicles: 4,
-    heavyVehicles: 3,
-    abilities: [Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc]
+    front: {
+      image: "cb/thunderfire-cannon-front.jpg",
+      movement: 2,
+      defence: 6,
+      infantry: 3,
+      lightVehicles: 4,
+      heavyVehicles: 3,
+      abilities: [Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc]
+    },
+    back: {
+      image: "cb/thunderfire-cannon-back.jpg",
+    }
   },
   {
     release: Release.CB,
@@ -752,13 +926,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/trukk.jpg",
-    movement: 6,
-    defence: 8,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    front: {
+      image: "cb/trukk-front.jpg",
+      movement: 6,
+      defence: 8,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    }
   },
   {
     release: Release.CB,
@@ -767,13 +943,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Squad,
-    image: "cb/uzdrakh.jpg",
-    movement: 3,
-    defence: 7,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: 2,
-    abilities: [Ability.Large, Ability.Order, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    front: {
+      image: "cb/uzdrakh-front.jpg",
+      movement: 3,
+      defence: 7,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 2,
+      abilities: [Ability.Large, Ability.Order, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.CB,
@@ -782,13 +960,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "cb/warbuggy.jpg",
-    movement: 6,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    front: {
+      image: "cb/warbuggy-front.jpg",
+      movement: 6,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.BM,
@@ -797,13 +977,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "bm/big-shoota.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.Assault, Ability.SuppressiveFire]
+    front: {
+      image: "bm/big-shoota-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire]
+    }
   },
   {
     release: Release.BM,
@@ -812,13 +994,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Regular,
     size: Size.Individual,
-    image: "bm/bomb-squigs.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: null,
-    abilities: [Ability.Explosion, Ability.Assault, Ability.LimitedRange]
+    front: {
+      image: "bm/bomb-squigs-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: null,
+      abilities: [Ability.Explosion, Ability.Assault, Ability.LimitedRange]
+    }
   },
   {
     release: Release.BM,
@@ -827,26 +1011,28 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.LongVehicle,
-    image: "bm/grot-mega-tank.jpg",
-    movement: 5,
-    defence: 7,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [],
-    primaryWeapons: [
-      {
+    front: {
+      image: "bm/grot-mega-tank-front.jpg",
+      movement: 5,
+      defence: 7,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [],
+      primaryWeapons: [
+        {
+          infantry: 3,
+          lightVehicles: 3,
+          heavyVehicles: 2,
+          abilities: [Ability.TwinLinked, Ability.LimitedRange]
+        }
+      ],
+      secondaryWeapon: {
         infantry: 3,
         lightVehicles: 3,
-        heavyVehicles: 2,
-        abilities: [Ability.TwinLinked, Ability.LimitedRange]
+        heavyVehicles: null,
+        abilities: [Ability.Flamethrower, Ability.SuppressiveFire]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 3,
-      lightVehicles: 3,
-      heavyVehicles: null,
-      abilities: [Ability.Flamethrower, Ability.SuppressiveFire]
     }
   },
   {
@@ -856,13 +1042,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/grot-tank-a.jpg",
-    movement: 5,
-    defence: 7,
-    infantry: 1,
-    lightVehicles: 0,
-    heavyVehicles: null,
-    abilities: [Ability.Flamethrower]
+    front: {
+      image: "bm/grot-tank-a-front.jpg",
+      movement: 5,
+      defence: 7,
+      infantry: 1,
+      lightVehicles: 0,
+      heavyVehicles: null,
+      abilities: [Ability.Flamethrower]
+    }
   },
   {
     release: Release.BM,
@@ -871,13 +1059,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/grot-tank-b.jpg",
-    movement: 5,
-    defence: 7,
-    infantry: 1,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Destruction, Ability.FireOnTheMove, Ability.LimitedRange]
+    front: {
+      image: "bm/grot-tank-b-front.jpg",
+      movement: 5,
+      defence: 7,
+      infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Destruction, Ability.FireOnTheMove, Ability.LimitedRange]
+    }
   },
   {
     release: Release.BM,
@@ -886,13 +1076,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/grot-tank-c.jpg",
-    movement: 5,
-    defence: 7,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
+    front: {
+      image: "bm/grot-tank-c-front.jpg",
+      movement: 5,
+      defence: 7,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.BM,
@@ -901,13 +1093,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/killa-kan-a.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: 1,
-    abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    front: {
+      image: "bm/killa-kan-a-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 1,
+      abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.BM,
@@ -916,13 +1110,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/killa-kan-b.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: 4,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+    front: {
+      image: "bm/killa-kan-b-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: 4,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.BM,
@@ -931,13 +1127,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Squad,
-    image: "bm/killa-kan-c.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: 3,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.Tearing, Ability.FireOnTheMove, Ability.LimitedRange]
+    front: {
+      image: "bm/killa-kan-c-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: 3,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Tearing, Ability.FireOnTheMove, Ability.LimitedRange]
+    }
   },
   {
     release: Release.BM,
@@ -946,13 +1144,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Squad,
-    image: "bm/mega-nob-a.jpg",
+    front: {
+    image: "bm/mega-nob-a-front.jpg",
     movement: 3,
     defence: 6,
     infantry: 2,
     lightVehicles: 3,
     heavyVehicles: 2,
     abilities: [Ability.Large, Ability.Assault, Ability.Piercing, Ability.FireOnTheMove, Ability.LimitedRange]
+    }
   },
   {
     release: Release.BM,
@@ -961,13 +1161,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Squad,
-    image: "bm/mega-nob-b.jpg",
-    movement: 3,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 2,
-    heavyVehicles: 0,
-    abilities: [Ability.Large, Ability.Assault, Ability.Tearing, Ability.Flamethrower]
+    front: {
+      image: "bm/mega-nob-b-front.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Large, Ability.Assault, Ability.Tearing, Ability.Flamethrower]
+    }
   },
   {
     release: Release.BM,
@@ -976,13 +1178,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Squad,
-    image: "bm/mega-nob-c.jpg",
-    movement: 3,
-    defence: 6,
-    infantry: 3,
-    lightVehicles: 2,
-    heavyVehicles: 1,
-    abilities: [Ability.Large, Ability.Assault, Ability.Tearing, Ability.Piercing, Ability.FireOnTheMove]
+    front: {
+      image: "bm/mega-nob-c-front.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 1,
+      abilities: [Ability.Large, Ability.Assault, Ability.Tearing, Ability.Piercing, Ability.FireOnTheMove]
+    }
   },
   {
     release: Release.BM,
@@ -991,26 +1195,28 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.Mech,
-    image: "bm/meka-dread.jpg",
-    movement: 3,
-    defence: 8,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.Mekaniak, Ability.PersonalOrder],
-    primaryWeapons: [
-      {
-        infantry: 3,
+    front: {
+      image: "bm/meka-dread-front.jpg",
+      movement: 3,
+      defence: 8,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.Mekaniak, Ability.PersonalOrder],
+      primaryWeapons: [
+        {
+          infantry: 3,
+          lightVehicles: 3,
+          heavyVehicles: 3,
+          abilities: [Ability.Piercing, Ability.FrighteningShot, Ability.FireOnTheMove],
+        }
+      ],
+      secondaryWeapon: {
+        infantry: 4,
         lightVehicles: 3,
-        heavyVehicles: 3,
-        abilities: [Ability.Piercing, Ability.FrighteningShot, Ability.FireOnTheMove],
+        heavyVehicles: 2,
+        abilities: [Ability.IndirectFire, Ability.Demolishing, Ability.Assault, Ability.Charge]
       }
-    ],
-    secondaryWeapon: {
-      infantry: 4,
-      lightVehicles: 3,
-      heavyVehicles: 2,
-      abilities: [Ability.IndirectFire, Ability.Demolishing, Ability.Assault, Ability.Charge]
     }
   },
   {
@@ -1020,13 +1226,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.HeavyWeapons,
     size: Size.Squad,
-    image: "bm/rokkit-launcha.jpg",
-    movement: 3,
-    defence: 4,
-    infantry: 1,
-    lightVehicles: 4,
-    heavyVehicles: 4,
-    abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
+    front: {
+      image: "bm/rokkit-launcha-front.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
+    }
   },
   {
     release: Release.BM,
@@ -1035,13 +1243,15 @@ export const units: Unit[] = [
     type: Type.Infantry,
     role: Role.Leader,
     size: Size.Individual,
-    image: "bm/skaablitz.jpg",
-    movement: 4,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 2,
-    heavyVehicles: 0,
-    abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.Tearing, Ability.Charge, Ability.Howitzer]
+    front: {
+      image: "bm/skaablitz-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.Tearing, Ability.Charge, Ability.Howitzer]
+    }
   },
   {
     release: Release.BM,
@@ -1050,32 +1260,34 @@ export const units: Unit[] = [
     type: Type.HeavyVehicle,
     role: Role.Regular,
     size: Size.SmallTitan,
-    image: "bm/stompa.jpg",
-    movement: 2,
-    defence: 9,
-    infantry: null,
-    lightVehicles: null,
-    heavyVehicles: null,
-    abilities: [Ability.PersonalOrder, Ability.Transport, Ability.Titan],
-    primaryWeapons: [
-      {
+    front: {
+      image: "bm/stompa-front.jpg",
+      movement: 2,
+      defence: 9,
+      infantry: null,
+      lightVehicles: null,
+      heavyVehicles: null,
+      abilities: [Ability.PersonalOrder, Ability.Transport, Ability.Titan],
+      primaryWeapons: [
+        {
+          infantry: 3,
+          lightVehicles: 3,
+          heavyVehicles: 0,
+          abilities: [Ability.IndirectFire, Ability.TwinLinked, Ability.SuppressiveFire, Ability.FireOnTheMove],
+        },
+        {
+          infantry: 4,
+          lightVehicles: 6,
+          heavyVehicles: 5,
+          abilities: [Ability.Charge, Ability.LimitedRange, Ability.Destruction, Ability.Tearing]
+        }
+      ],
+      secondaryWeapon: {
         infantry: 3,
-        lightVehicles: 3,
-        heavyVehicles: 0,
-        abilities: [Ability.IndirectFire, Ability.TwinLinked, Ability.SuppressiveFire, Ability.FireOnTheMove],
-      },
-      {
-        infantry: 4,
-        lightVehicles: 6,
-        heavyVehicles: 5,
-        abilities: [Ability.Charge, Ability.LimitedRange, Ability.Destruction, Ability.Tearing]
+        lightVehicles: 4,
+        heavyVehicles: 3,
+        abilities: [Ability.Flamethrower, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.DoubleFire],
       }
-    ],
-    secondaryWeapon: {
-      infantry: 3,
-      lightVehicles: 4,
-      heavyVehicles: 3,
-      abilities: [Ability.Flamethrower, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.DoubleFire],
     }
   },
   {
@@ -1085,13 +1297,15 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.LongVehicle,
-    image: "bm/trukk.jpg",
-    movement: 6,
-    defence: 8,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire],
+    front: {
+      image: "bm/trukk-front.jpg",
+      movement: 6,
+      defence: 8,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire],
+    }
   },
   {
     release: Release.BM,
@@ -1100,12 +1314,14 @@ export const units: Unit[] = [
     type: Type.LightVehicle,
     role: Role.Regular,
     size: Size.Vehicle,
-    image: "bm/warbuggy.jpg",
-    movement: 6,
-    defence: 5,
-    infantry: 3,
-    lightVehicles: 3,
-    heavyVehicles: null,
-    abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    front: {
+      image: "bm/warbuggy-front.jpg",
+      movement: 6,
+      defence: 5,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: null,
+      abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    }
   }
 ];
