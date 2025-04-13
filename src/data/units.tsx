@@ -375,6 +375,12 @@ export const units: Unit[] = [
           lightVehicles: null,
           heavyVehicles: null,
           abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
+        },
+        {
+          infantry: null,
+          lightVehicles: null,
+          heavyVehicles: null,
+          abilities: [Ability.LimitedFiringArc, Ability.Flamethrower]
         }
       ],
       secondaryWeapon: {
@@ -513,7 +519,7 @@ export const units: Unit[] = [
       abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange]
     },
     back: {
-      image:  "cb/plasma-gun-back.jpg",
+      image: "cb/plasma-gun-back.jpg",
       movement: 3,
       defence: 6,
       infantry: 2,
@@ -717,7 +723,7 @@ export const units: Unit[] = [
       abilities: [Ability.Flying, Ability.Signum]
     },
     back: {
-      image: "cb/servo-skull-gunner-back.jpg",
+      image: "cb/servo-skull-gunner-back.jpg"
     }
   },
   {
@@ -737,7 +743,7 @@ export const units: Unit[] = [
       abilities: [Ability.Order, Ability.Assault, Ability.Ambush]
     },
     back: {
-      image: "cb/sgt-elias-back.jpg",
+      image: "cb/sgt-elias-back.jpg"
     }
   },
   {
@@ -916,7 +922,7 @@ export const units: Unit[] = [
       abilities: [Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc]
     },
     back: {
-      image: "cb/thunderfire-cannon-back.jpg",
+      image: "cb/thunderfire-cannon-back.jpg"
     }
   },
   {
@@ -1145,13 +1151,13 @@ export const units: Unit[] = [
     role: Role.Leader,
     size: Size.Squad,
     front: {
-    image: "bm/mega-nob-a-front.jpg",
-    movement: 3,
-    defence: 6,
-    infantry: 2,
-    lightVehicles: 3,
-    heavyVehicles: 2,
-    abilities: [Ability.Large, Ability.Assault, Ability.Piercing, Ability.FireOnTheMove, Ability.LimitedRange]
+      image: "bm/mega-nob-a-front.jpg",
+      movement: 3,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 3,
+      heavyVehicles: 2,
+      abilities: [Ability.Large, Ability.Assault, Ability.Piercing, Ability.FireOnTheMove, Ability.LimitedRange]
     }
   },
   {
@@ -1208,7 +1214,7 @@ export const units: Unit[] = [
           infantry: 3,
           lightVehicles: 3,
           heavyVehicles: 3,
-          abilities: [Ability.Piercing, Ability.FrighteningShot, Ability.FireOnTheMove],
+          abilities: [Ability.Piercing, Ability.FrighteningShot, Ability.FireOnTheMove]
         }
       ],
       secondaryWeapon: {
@@ -1273,20 +1279,20 @@ export const units: Unit[] = [
           infantry: 3,
           lightVehicles: 3,
           heavyVehicles: 0,
-          abilities: [Ability.IndirectFire, Ability.TwinLinked, Ability.SuppressiveFire, Ability.FireOnTheMove],
+          abilities: [Ability.IndirectFire, Ability.TwinLinked, Ability.SuppressiveFire, Ability.FireOnTheMove]
         },
         {
           infantry: 4,
           lightVehicles: 6,
           heavyVehicles: 5,
-          abilities: [Ability.Charge, Ability.LimitedRange, Ability.Destruction, Ability.Tearing]
+          abilities: [Ability.LongDistanceAssault, Ability.LimitedRange, Ability.Demolishing, Ability.Assault, Ability.Tearing]
         }
       ],
       secondaryWeapon: {
         infantry: 3,
         lightVehicles: 4,
         heavyVehicles: 3,
-        abilities: [Ability.Flamethrower, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.DoubleFire],
+        abilities: [Ability.Flamethrower, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.DoubleFire]
       }
     }
   },
@@ -1304,7 +1310,7 @@ export const units: Unit[] = [
       infantry: 3,
       lightVehicles: 3,
       heavyVehicles: null,
-      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
     }
   },
   {
