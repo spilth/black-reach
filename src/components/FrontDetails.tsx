@@ -12,9 +12,12 @@ const FrontDetails = ({ unit }: { unit: Unit }) =>
 
     {unit.front.primaryWeapons &&
       <>
-        <h2>Primary Weapon Abilities</h2>
+        {unit.front.primaryWeapons.map((weapon, index) =>
+          <>
+            <h2>Primary Weapon {index + 1} Abilities</h2>
 
-        <AbilitiesAccordion abilities={unit.front.primaryWeapons[0].abilities} />
+            <AbilitiesAccordion abilities={weapon.abilities} />
+          </>)}
       </>
     }
 
