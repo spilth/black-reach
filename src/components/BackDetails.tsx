@@ -20,11 +20,8 @@ const BackDetails = ({ unit }: { unit: Unit }) =>
             <TerrainEffectsAccordion terrainEffects={unit.back.terrainEffects} />
           </>
         }
-
-
       </>
     )}
-
   </>;
 
 export default BackDetails;

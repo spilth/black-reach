@@ -6,7 +6,7 @@ import type { TerrainEffect } from "../data/terrainEffects.tsx";
 const terrainEffectImageName = (terrainEffect: TerrainEffect) => terrainEffect.toLowerCase().replace(/ /g, "");
 
 export const TerrainEffectsAccordion = ({ terrainEffects }: { terrainEffects: TerrainEffect[] }) => (
-  <Accordion className="mb-4">
+  <Accordion className="mb-4" alwaysOpen>
     {terrainEffects.map(terrainEffect => (
       <Accordion.Item eventKey={terrainEffect} key={terrainEffect}>
         <Accordion.Header><img

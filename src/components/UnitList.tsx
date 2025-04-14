@@ -17,8 +17,8 @@ const UnitList = () => {
   const [selectedUnit, setSelectedUnit] = React.useState<Unit>(cbUltramarines[0]);
 
   return <div className="pe-2">
-    <div className="row g-0 vh-100">
-      <div className="col-3 col-lg-2 border-end">
+    <div className="row g-0">
+      <div className="col-3 col-lg-2 border-end vh-100 overflow-auto">
         <Accordion defaultActiveKey="Ultramarines" flush>
           <FactionAccordionItem name="Core Box - Ultramarines"
                                 units={cbUltramarines}
@@ -32,10 +32,9 @@ const UnitList = () => {
                                 units={bmOrks}
                                 onClick={setSelectedUnit}
                                 isActive={(unit: Unit) => unit === selectedUnit} />
-
         </Accordion>
       </div>
-      <div className="col-9 col-lg-10 p-2">
+      <div className="col-9 col-lg-10 ps-2 vh-100 overflow-auto">
         <h1>{selectedUnit.name}</h1>
 
         <Tabs id="unit-tokens" defaultActiveKey="front" className="mb-2">

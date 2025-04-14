@@ -1,5 +1,5 @@
 ---
-import '../styles/main.scss';
+import "../styles/main.scss";
 ---
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
@@ -11,6 +11,19 @@ import '../styles/main.scss';
   <title>Heroes of Black Reach Units</title>
 </head>
 <body>
-<slot />
+<div class="application">
+  <slot />
+</div>
 </body>
 </html>
+
+<style is:global>
+    html, body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .application {
+        height: 100vh;
+    }
+</style>

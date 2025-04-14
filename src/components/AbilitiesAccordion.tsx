@@ -7,7 +7,7 @@ const abilityImageName = (ability: Ability) => ability.toLowerCase().replace(/ /
 
 export const AbilitiesAccordion = ({ abilities }: { abilities: Ability[] }) => {
   return (
-    <Accordion className="mb-4">
+    <Accordion className="mb-4" alwaysOpen>
       {abilities.map(ability => (
         <Accordion.Item eventKey={ability} key={ability}>
           <Accordion.Header><img
