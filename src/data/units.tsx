@@ -19,6 +19,9 @@ export const units: Unit[] = [
       lightVehicles: null,
       heavyVehicles: null,
       abilities: [Ability.Fragile, Ability.MunitionsCarrier]
+    },
+    back: {
+      image: "cb/ammo-runts-back.jpg",
     }
   },
   {
@@ -50,6 +53,10 @@ export const units: Unit[] = [
         heavyVehicles: 0,
         abilities: [Ability.DoubleFire, Ability.FireOnTheMove, Ability.MachineGunner, Ability.SuppressiveFire]
       }
+    },
+    back: {
+      image: "cb/battlewagon-back.jpg",
+      terrainEffects: [TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks, TerrainEffect.Structure]
     }
   },
   {
@@ -67,6 +74,15 @@ export const units: Unit[] = [
       lightVehicles: 3,
       heavyVehicles: null,
       abilities: [Ability.Assault, Ability.SuppressiveFire]
+    },
+    back: {
+      image: "cb/big-shoota-back.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire]
     }
   },
   {
@@ -78,6 +94,15 @@ export const units: Unit[] = [
     size: Size.Individual,
     front: {
       image: "cb/boss-mob-a-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Assault, Ability.Tearing]
+    },
+    back: {
+      image: "cb/boss-mob-a-back.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -101,6 +126,15 @@ export const units: Unit[] = [
       lightVehicles: 1,
       heavyVehicles: 0,
       abilities: [Ability.Large, Ability.Flying, Ability.Order, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/boss-mob-b-back.jpg",
+      movement: 5,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Large, Ability.Flying, Ability.Order, Ability.Assault, Ability.LimitedRange]
     }
   },
   {
@@ -112,6 +146,15 @@ export const units: Unit[] = [
     size: Size.Individual,
     front: {
       image: "cb/boss-mob-c-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Order, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/boss-mob-c-back.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -236,6 +279,10 @@ export const units: Unit[] = [
         heavyVehicles: 0,
         abilities: [Ability.Assault, Ability.Charge, Ability.FireOnTheMove]
       }
+    },
+    back: {
+      image: "cb/deff-dread-back.jpg",
+      terrainEffects: [TerrainEffect.DefensiveBonus, TerrainEffect.Structure, TerrainEffect.ObstacleObscures, TerrainEffect.ImpassableToSomeUnits]
     }
   },
   {
@@ -247,6 +294,15 @@ export const units: Unit[] = [
     size: Size.Individual,
     front: {
       image: "cb/gorkargk-front.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Weirdboy, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/gorkargk-back.jpg",
       movement: 4,
       defence: 6,
       infantry: 2,
@@ -270,6 +326,9 @@ export const units: Unit[] = [
       lightVehicles: null,
       heavyVehicles: null,
       abilities: [Ability.Fragile, Ability.GrotOilers]
+    },
+    back: {
+      image: "cb/grot-oiler-back.jpg",
     }
   },
   {
@@ -335,6 +394,10 @@ export const units: Unit[] = [
       lightVehicles: 2,
       heavyVehicles: 1,
       abilities: [Ability.LimitedRange, Ability.Assault, Ability.Tearing, Ability.SuppressiveFire, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/killa-kan-a-back.jpg",
+      terrainEffects: [TerrainEffect.ObstacleObscures, TerrainEffect.DefensiveBonus, TerrainEffect.Structure]
     }
   },
   {
@@ -352,6 +415,10 @@ export const units: Unit[] = [
       lightVehicles: 4,
       heavyVehicles: 4,
       abilities: [Ability.Assault, Ability.Piercing, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/killa-kan-b-back.jpg",
+      terrainEffects: [TerrainEffect.ObstacleObscures, TerrainEffect.DefensiveBonus, TerrainEffect.Structure]
     }
   },
   {
@@ -461,6 +528,16 @@ export const units: Unit[] = [
       lightVehicles: 3,
       heavyVehicles: 2,
       abilities: [Ability.Large, Ability.Mekaniak, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/malagrah-back.jpg",
+      movement: 3,
+      defence: 7,
+      infantry: 3,
+      lightVehicles: 3,
+      heavyVehicles: 2,
+      abilities: [Ability.Large, Ability.Mekaniak, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+
     }
   },
   {
@@ -478,6 +555,9 @@ export const units: Unit[] = [
       lightVehicles: 0,
       heavyVehicles: null,
       abilities: [Ability.Large, Ability.LimitedFiringArc, Ability.IndirectFire]
+    },
+    back: {
+      image: "cb/mek-gun-back.jpg"
     }
   },
   {
@@ -631,6 +711,15 @@ export const units: Unit[] = [
       movement: 3,
       defence: 4,
       infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/rokkit-launcha-back.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 0,
       lightVehicles: 4,
       heavyVehicles: 4,
       abilities: [Ability.Assault, Ability.Destruction, Ability.LimitedRange]
@@ -809,6 +898,15 @@ export const units: Unit[] = [
       lightVehicles: 1,
       heavyVehicles: null,
       abilities: [Ability.Assault]
+    },
+    back: {
+      image: "cb/shootas-back.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 0,
+      heavyVehicles: null,
+      abilities: [Ability.Assault]
     }
   },
   {
@@ -824,6 +922,15 @@ export const units: Unit[] = [
       defence: 4,
       infantry: 1,
       lightVehicles: 1,
+      heavyVehicles: null,
+      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/sluggas-back.jpg",
+      movement: 3,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 0,
       heavyVehicles: null,
       abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
     }
@@ -843,6 +950,9 @@ export const units: Unit[] = [
       lightVehicles: 2,
       heavyVehicles: null,
       abilities: [Ability.Bodyguard, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/squigs-back.jpg",
     }
   },
   {
@@ -858,6 +968,15 @@ export const units: Unit[] = [
       defence: 4,
       infantry: 1,
       lightVehicles: 1,
+      heavyVehicles: 0,
+      abilities: [Ability.Large, Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/stormboyz-back.jpg",
+      movement: 5,
+      defence: 4,
+      infantry: 1,
+      lightVehicles: 0,
       heavyVehicles: 0,
       abilities: [Ability.Large, Ability.Assault, Ability.SuppressiveFire, Ability.LimitedRange]
     }
@@ -902,7 +1021,16 @@ export const units: Unit[] = [
       infantry: 1,
       lightVehicles: 4,
       heavyVehicles: 4,
-      abilities: [Ability.Assault, Ability.LimitedRange, Ability.Ambush]
+      abilities: [Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "cb/tankbustas-back.jpg",
+      movement: 1,
+      defence: 5,
+      infantry: 1,
+      lightVehicles: 4,
+      heavyVehicles: 4,
+      abilities: [Ability.Overwatch, Ability.LimitedRange]
     }
   },
   {
@@ -940,6 +1068,10 @@ export const units: Unit[] = [
       lightVehicles: 3,
       heavyVehicles: null,
       abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+    },
+    back: {
+      image: "cb/trukk-back.jpg",
+      terrainEffects: [TerrainEffect.Structure, TerrainEffect.ImpassableToSomeUnits, TerrainEffect.ObstacleBlocks]
     }
   },
   {
@@ -951,6 +1083,15 @@ export const units: Unit[] = [
     size: Size.Squad,
     front: {
       image: "cb/uzdrakh-front.jpg",
+      movement: 3,
+      defence: 7,
+      infantry: 3,
+      lightVehicles: 2,
+      heavyVehicles: 2,
+      abilities: [Ability.Large, Ability.Order, Ability.Assault, Ability.Tearing, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/uzdrakh-back.jpg",
       movement: 3,
       defence: 7,
       infantry: 3,
@@ -974,6 +1115,10 @@ export const units: Unit[] = [
       lightVehicles: 3,
       heavyVehicles: null,
       abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "cb/warbuggy-back.jpg",
+      terrainEffects: [TerrainEffect.ObstacleObscures, TerrainEffect.DefensiveBonus, TerrainEffect.Structure]
     }
   },
   {
