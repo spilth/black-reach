@@ -37,6 +37,7 @@ import { Explosion } from "../components/abilities/Explosion.tsx";
 import { PersonalOrder } from "../components/abilities/PersonalOrder.tsx";
 import { Titan } from "../components/abilities/Titan.tsx";
 import { LongDistanceAssault } from "../components/abilities/LongDistanceAssault.tsx";
+import { Overwatch } from "../components/abilities/Overwatch.tsx";
 
 export enum Ability {
   Ambush = "Ambush",
@@ -67,6 +68,7 @@ export enum Ability {
   MunitionsCarrier = "Munitions Carrier",
   NoWeakPoint = "No Weak Point",
   Order = "Order",
+  Overwatch = "Overwatch",
   PersonalOrder = "Personal Order",
   Piercing = "Piercing",
   Signum = "Signum",
@@ -109,6 +111,7 @@ export const abilityComponents = {
   [Ability.MunitionsCarrier]: MunitionsCarrier,
   [Ability.NoWeakPoint]: NoWeakPoint,
   [Ability.Order]: Order,
+  [Ability.Overwatch]: Overwatch,
   [Ability.PersonalOrder]: PersonalOrder,
   [Ability.Piercing]: Piercing,
   [Ability.Signum]: Signum,
