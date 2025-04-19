@@ -1153,6 +1153,9 @@ export const units: Unit[] = [
       lightVehicles: 2,
       heavyVehicles: null,
       abilities: [Ability.Explosion, Ability.Assault, Ability.LimitedRange]
+    },
+    back: {
+      image: "bm/bomb-squigs-back.jpg",
     }
   },
   {
@@ -1402,6 +1405,15 @@ export const units: Unit[] = [
       lightVehicles: 2,
       heavyVehicles: 0,
       abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.Tearing, Ability.Charge, Ability.Howitzer]
+    },
+    back: {
+      image: "bm/skaablitz-back.jpg",
+      movement: 4,
+      defence: 6,
+      infantry: 2,
+      lightVehicles: 2,
+      heavyVehicles: 0,
+      abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.Tearing, Ability.Charge, Ability.Howitzer]
     }
   },
   {
@@ -1439,6 +1451,10 @@ export const units: Unit[] = [
         heavyVehicles: 3,
         abilities: [Ability.Flamethrower, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.DoubleFire]
       }
+    },
+    back: {
+      image: "bm/stompa-back.jpg",
+      terrainEffects: [TerrainEffect.DefensiveBonus, TerrainEffect.ObstacleObscures, TerrainEffect.ObstacleBlocks, TerrainEffect.Impassable]
     }
   },
   {
@@ -1473,6 +1489,10 @@ export const units: Unit[] = [
       lightVehicles: 3,
       heavyVehicles: null,
       abilities: [Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove]
+    },
+    back: {
+      image: "bm/warbuggy-back.jpg",
+      terrainEffects: [TerrainEffect.ObstacleObscures, TerrainEffect.DefensiveBonus, TerrainEffect.Structure]
     }
   }
 ];
