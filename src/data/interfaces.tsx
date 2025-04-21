@@ -64,5 +64,5 @@ export interface Unit {
   role: Role;
   size: Size;
   front: Front;
-  back?: Reduced | Active | Wrecked | Ambush | Destroyed;
+  back: Reduced | Active | Wrecked | Ambush | Destroyed;
 }
