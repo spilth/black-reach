@@ -1,2 +1,3 @@
-$font-size-base: 0.875rem;
-@import 'bootstrap/scss/bootstrap';
+@use 'bootstrap/scss/bootstrap' with (
+  $font-size-base: 0.875rem
+);
