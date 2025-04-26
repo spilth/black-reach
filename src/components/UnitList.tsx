@@ -39,7 +39,7 @@ const UnitList = () => {
                                 isActive={(unit: Unit) => unit === selectedUnit} />
         </Accordion>
       </div>
-      <div className="col-9 col-lg-10 ps-2 vh-100 overflow-auto">
+      <div className="col-9 col-lg-10 ps-2 vh-100 overflow-y-scroll overflow-x-hidden">
         <h1>{selectedUnit.name}</h1>
 
         <Tabs id="unit-tokens" defaultActiveKey="front" className="mb-2">
