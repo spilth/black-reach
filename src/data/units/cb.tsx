@@ -38,7 +38,7 @@ export const cb: Unit[] = [
       infantry: null,
       lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.LargeTransport],
+      abilities: [Ability.TransportLarge],
       primaryWeapons: [
         {
           infantry: 2,
@@ -435,7 +435,7 @@ export const cb: Unit[] = [
       infantry: null,
       lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.NoWeakPoint, Ability.LargeTransport],
+      abilities: [Ability.NoWeakPoint, Ability.TransportLarge],
       primaryWeapons: [
         {
           infantry: null,
@@ -476,7 +476,7 @@ export const cb: Unit[] = [
       infantry: 4,
       lightVehicles: 3,
       heavyVehicles: 1,
-      abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport, Ability.Inactive]
+      abilities: [Ability.Flying, Ability.Howitzer, Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.TransportInfantry, Ability.Inactive]
     },
     back: {
       image: "cb/land-speeder-storm-back.jpg",
@@ -484,7 +484,7 @@ export const cb: Unit[] = [
       infantry: 4,
       lightVehicles: 3,
       heavyVehicles: 1,
-      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.Transport, Ability.Active]
+      abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove, Ability.TransportInfantry, Ability.Active]
     }
   },
   {
@@ -657,7 +657,7 @@ export const cb: Unit[] = [
       infantry: null,
       lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.Transport],
+      abilities: [Ability.TransportInfantry],
       primaryWeapons: [
         {
           infantry: 4,
@@ -692,7 +692,7 @@ export const cb: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: null,
-      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
     },
     back: {
       image: "cb/rhino-back.jpg",
@@ -1068,7 +1068,7 @@ export const cb: Unit[] = [
       infantry: 3,
       lightVehicles: 3,
       heavyVehicles: null,
-      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
     },
     back: {
       image: "cb/trukk-back.jpg",

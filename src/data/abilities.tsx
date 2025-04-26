@@ -45,7 +45,6 @@ import { Auspex } from "../components/abilities/Auspex.tsx";
 import { Apothecary } from "../components/abilities/Apothecary.tsx";
 import { FrontArmour } from "../components/abilities/FrontArmour.tsx";
 import { Concealed } from "../components/abilities/Concealed.tsx";
-import { LargeTransport } from "../components/abilities/LargeTransport.tsx";
 
 export enum Ability {
   Active = "Active",
@@ -72,7 +71,6 @@ export enum Ability {
   IndirectFire = "Indirect Fire",
   Inspiration = "Inspiration",
   Large = "Large",
-  LargeTransport = "Large Transport",
   Librarian = "Librarian",
   LimitedFiringArc = "Limited Firing Arc",
   LimitedRange = "Limited Range",
@@ -93,7 +91,8 @@ export enum Ability {
   Techmarine = "Techmarine",
   Terrifying = "Terrifying",
   Titan = "Titan",
-  Transport = "Transport",
+  TransportInfantry = "Transport - Infantry",
+  TransportLarge = "Transport - Large",
   TwinLinked = "Twin Linked",
   Weirdboy = "Weirdboy",
 }
@@ -123,7 +122,6 @@ export const abilityComponents = {
   [Ability.IndirectFire]: IndirectFire,
   [Ability.Inspiration]: Inspiration,
   [Ability.Large]: Large,
-  [Ability.LargeTransport]: LargeTransport,
   [Ability.Librarian]: Librarian,
   [Ability.LimitedFiringArc]: LimitedFiringArc,
   [Ability.LimitedRange]: LimitedRange,
@@ -144,7 +142,8 @@ export const abilityComponents = {
   [Ability.Techmarine]: Techmarine,
   [Ability.Terrifying]: Terrifying,
   [Ability.Titan]: Titan,
-  [Ability.Transport]: Transport,
+  [Ability.TransportInfantry]: Transport,
+  [Ability.TransportLarge]: Transport,
   [Ability.TwinLinked]: TwinLinked,
   [Ability.Weirdboy]: Weirdboy,
 };

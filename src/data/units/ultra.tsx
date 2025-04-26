@@ -284,7 +284,7 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: null,
-      abilities: [Ability.Signum, Ability.Auspex, Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [Ability.Signum, Ability.Auspex, Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
     },
     back: {
       image: "ultra/command-rhino-back.jpg",
@@ -455,7 +455,7 @@ export const ultra: Unit[] = [
       infantry: null,
       lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.NoWeakPoint, Ability.LargeTransport],
+      abilities: [Ability.NoWeakPoint, Ability.TransportLarge],
       primaryWeapons: [
         {
           infantry: 2,
@@ -655,7 +655,7 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: null,
-      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
     },
     back: {
       image: "ultra/rhino-back.jpg",
