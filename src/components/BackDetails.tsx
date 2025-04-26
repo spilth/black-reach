@@ -7,7 +7,7 @@ const BackDetails = ({ unit }: { unit: Unit }) =>
   <>
     {unit.back && (
       <>
-        {"abilities" in unit.back && <>
+        {"abilities" in unit.back && unit.back.abilities.length > 0 && <>
           <h2>Special Abilities</h2>
 
           <AbilitiesAccordion abilities={unit.back.abilities} />
