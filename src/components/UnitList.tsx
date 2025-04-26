@@ -12,6 +12,7 @@ import BackDetails from "./BackDetails.tsx";
 const UnitList = () => {
   const cbUltramarines = units.filter(unit => unit.release == Release.CB && unit.faction == Faction.Ultramarines);
   const cbOrks = units.filter(unit => unit.release == Release.CB && unit.faction == Faction.Orks);
+  const ultra = units.filter(unit => unit.release == Release.ULTRA && unit.faction == Faction.Ultramarines);
   const bmOrks = units.filter(unit => unit.release == Release.BM && unit.faction == Faction.Orks);
 
   const [selectedUnit, setSelectedUnit] = React.useState<Unit>(cbUltramarines[0]);
@@ -26,6 +27,10 @@ const UnitList = () => {
                                 isActive={(unit: Unit) => unit === selectedUnit} />
           <FactionAccordionItem name="Core Box - Orks"
                                 units={cbOrks}
+                                onClick={setSelectedUnit}
+                                isActive={(unit: Unit) => unit === selectedUnit} />
+          <FactionAccordionItem name="Reinforcements - Ultramarines"
+                                units={ultra}
                                 onClick={setSelectedUnit}
                                 isActive={(unit: Unit) => unit === selectedUnit} />
           <FactionAccordionItem name="Bad Moon - Orks"

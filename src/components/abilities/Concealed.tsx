@@ -1,9 +1,7 @@
 import React from "react";
 
-export const Ambush = () => {
+export const Concealed = () => {
   return <>
-    <p>This Unit can conceal itself from observation by
-      the enemy.</p>
     <p>When a Unit is Concealed (Active Side up), it
       follows these rules:</p>
     <ul>
