@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Transport = () => {
+export const LargeTransport = () => {
   return <>
     <p>A Vehicle with this Special Ability can transport
       Infantry Units. The capacity of the Vehicle is equal to

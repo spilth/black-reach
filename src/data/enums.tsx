@@ -29,8 +29,9 @@ export enum Size {
   Individual = "Individual",      // 368x368
   Squad = "Squad",                // 422x422
   Mech = "Mech",                  // 552x422
-  Vehicle = "Vehicle",            // 472x768
-  LargeVehicle = "Large Vehicle", // 906x906
-  LongVehicle = "Long Vehicle",   // 466x929
+  SmallVehicle = "SmallVehicle",  // 466x606 e.g. Land Speeder
+  Vehicle = "Vehicle",            // 472x768 e.g. Predator
+  LargeVehicle = "Large Vehicle", // 906x906 e.g. Land Raider
+  LongVehicle = "Long Vehicle",   // 466x929 e.g. Battlewagon
   SmallTitan = "Small Titan",     // 1400x1400
 }

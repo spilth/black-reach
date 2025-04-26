@@ -1,4 +1,3 @@
-import { Ambush } from "../components/abilities/Ambush.tsx";
 import { Assault } from "../components/abilities/Assault.tsx";
 import { FireOnTheMove } from "../components/abilities/FireOnTheMove.tsx";
 import { Sniper } from "../components/abilities/Sniper.tsx";
@@ -38,12 +37,24 @@ import { PersonalOrder } from "../components/abilities/PersonalOrder.tsx";
 import { Titan } from "../components/abilities/Titan.tsx";
 import { LongDistanceAssault } from "../components/abilities/LongDistanceAssault.tsx";
 import { Overwatch } from "../components/abilities/Overwatch.tsx";
+import { Motivation } from "../components/abilities/Motivation.tsx";
+import { Terrifying } from "../components/abilities/Terrifying.tsx";
+import { Inactive } from "../components/abilities/Inactive.tsx";
+import { Active } from "../components/abilities/Active.tsx";
+import { Auspex } from "../components/abilities/Auspex.tsx";
+import { Apothecary } from "../components/abilities/Apothecary.tsx";
+import { FrontArmour } from "../components/abilities/FrontArmour.tsx";
+import { Concealed } from "../components/abilities/Concealed.tsx";
+import { LargeTransport } from "../components/abilities/LargeTransport.tsx";
 
 export enum Ability {
-  Ambush = "Ambush",
+  Active = "Active",
+  Apothecary = "Apothecary",
   Assault = "Assault",
+  Auspex = "Auspex",
   Bodyguard = "Bodyguard",
   Charge = "Charge",
+  Concealed = "Concealed",
   Demolishing = "Demolishing",
   Destruction = "Destruction",
   DoubleFire = "Double Fire",
@@ -52,19 +63,23 @@ export enum Ability {
   Flamethrower = "Flamethrower",
   Fragile = "Fragile",
   FrighteningShot = "Frightening Shot",
+  FrontArmour = "Front Armour",
   Flying = "Flying",
   GrotOilers = "Grot Oilers",
   HawkEyed = "HawkEyed",
   Howitzer = "Howitzer",
+  Inactive = "Inactive",
   IndirectFire = "Indirect Fire",
   Inspiration = "Inspiration",
   Large = "Large",
+  LargeTransport = "Large Transport",
   Librarian = "Librarian",
   LimitedFiringArc = "Limited Firing Arc",
   LimitedRange = "Limited Range",
   LongDistanceAssault = "Long Distance Assault",
   MachineGunner = "Machine Gunner",
   Mekaniak = "Mekaniak",
+  Motivation = "Motivation",
   MunitionsCarrier = "Munitions Carrier",
   NoWeakPoint = "No Weak Point",
   Order = "Order",
@@ -74,8 +89,9 @@ export enum Ability {
   Signum = "Signum",
   Sniper = "Sniper",
   SuppressiveFire = "Suppressive Fire",
-  Techmarine = "Techmarine",
   Tearing = "Tearing",
+  Techmarine = "Techmarine",
+  Terrifying = "Terrifying",
   Titan = "Titan",
   Transport = "Transport",
   TwinLinked = "Twin Linked",
@@ -83,10 +99,13 @@ export enum Ability {
 }
 
 export const abilityComponents = {
-  [Ability.Ambush]: Ambush,
+  [Ability.Active]: Active,
+  [Ability.Apothecary]: Apothecary,
   [Ability.Assault]: Assault,
+  [Ability.Auspex]: Auspex,
   [Ability.Bodyguard]: Bodyguard,
   [Ability.Charge]: Charge,
+  [Ability.Concealed]: Concealed,
   [Ability.Demolishing]: Demolishing,
   [Ability.Destruction]: Destruction,
   [Ability.DoubleFire]: DoubleFire,
@@ -95,19 +114,23 @@ export const abilityComponents = {
   [Ability.Flamethrower]: Flamethrower,
   [Ability.Fragile]: Fragile,
   [Ability.FrighteningShot]: FrighteningShot,
+  [Ability.FrontArmour]: FrontArmour,
   [Ability.Flying]: Flying,
   [Ability.GrotOilers]: GrotOilers,
   [Ability.HawkEyed]: HawkEyed,
   [Ability.Howitzer]: Howitzer,
+  [Ability.Inactive]: Inactive,
   [Ability.IndirectFire]: IndirectFire,
   [Ability.Inspiration]: Inspiration,
   [Ability.Large]: Large,
+  [Ability.LargeTransport]: LargeTransport,
   [Ability.Librarian]: Librarian,
   [Ability.LimitedFiringArc]: LimitedFiringArc,
   [Ability.LimitedRange]: LimitedRange,
   [Ability.LongDistanceAssault]: LongDistanceAssault,
   [Ability.MachineGunner]: MachineGunner,
   [Ability.Mekaniak]: Mekaniak,
+  [Ability.Motivation]: Motivation,
   [Ability.MunitionsCarrier]: MunitionsCarrier,
   [Ability.NoWeakPoint]: NoWeakPoint,
   [Ability.Order]: Order,
@@ -119,8 +142,9 @@ export const abilityComponents = {
   [Ability.SuppressiveFire]: SuppressiveFire,
   [Ability.Tearing]: Tearing,
   [Ability.Techmarine]: Techmarine,
+  [Ability.Terrifying]: Terrifying,
   [Ability.Titan]: Titan,
   [Ability.Transport]: Transport,
   [Ability.TwinLinked]: TwinLinked,
-  [Ability.Weirdboy]: Weirdboy
+  [Ability.Weirdboy]: Weirdboy,
 };
