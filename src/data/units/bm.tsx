@@ -390,7 +390,7 @@ export const bm: Unit[] = [
       infantry: null,
       lightVehicles: null,
       heavyVehicles: null,
-      abilities: [Ability.PersonalOrder, Ability.Transport, Ability.Titan],
+      abilities: [Ability.PersonalOrder, Ability.TransportInfantry, Ability.Titan],
       primaryWeapons: [
         {
           infantry: 3,
@@ -431,7 +431,7 @@ export const bm: Unit[] = [
       infantry: 3,
       lightVehicles: 3,
       heavyVehicles: null,
-      abilities: [Ability.Transport, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
     },
     back: {
       image: "bm/trukk-back.jpg",
