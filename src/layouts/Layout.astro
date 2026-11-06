@@ -1,29 +1,31 @@
 ---
 import "../styles/main.scss";
 ---
+
 <!doctype html>
 <html lang="en" data-bs-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-  <title>Heroes of Black Reach Player Aid</title>
-</head>
-<body>
-<div class="application">
-  <slot />
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Heroes of Black Reach Player Aid</title>
+  </head>
+  <body>
+    <div class="application">
+      <slot />
+    </div>
+  </body>
 </html>
 
 <style is:global>
-    html, body {
-        height: 100%;
-        overflow: hidden;
-    }
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
 
-    .application {
-        height: 100vh;
-    }
+  .application {
+    height: 100vh;
+  }
 </style>
