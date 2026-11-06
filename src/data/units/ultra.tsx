@@ -24,19 +24,31 @@ export const ultra: Unit[] = [
           infantry: 2,
           lightVehicles: 5,
           heavyVehicles: 4,
-          abilities: [Ability.Piercing, Ability.TwinLinked, Ability.FireOnTheMove],
+          abilities: [
+            Ability.Piercing,
+            Ability.TwinLinked,
+            Ability.FireOnTheMove,
+          ],
         },
       ],
       secondaryWeapon: {
         infantry: 4,
         lightVehicles: 3,
         heavyVehicles: 0,
-        abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove],
+        abilities: [
+          Ability.MachineGunner,
+          Ability.SuppressiveFire,
+          Ability.FireOnTheMove,
+        ],
       },
     },
     back: {
       image: "ultra/annihilator-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
     },
   },
   {
@@ -73,7 +85,14 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 2,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/assault-back.jpg",
@@ -82,7 +101,14 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -99,7 +125,12 @@ export const ultra: Unit[] = [
       infantry: 5,
       lightVehicles: 3,
       heavyVehicles: 2,
-      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Assault,
+        Ability.SuppressiveFire,
+        Ability.MachineGunner,
+        Ability.FireOnTheMove,
+      ],
     },
     back: {
       image: "ultra/assault-cannon-back.jpg",
@@ -108,7 +139,12 @@ export const ultra: Unit[] = [
       infantry: 4,
       lightVehicles: 2,
       heavyVehicles: 1,
-      abilities: [Ability.Assault, Ability.SuppressiveFire, Ability.MachineGunner, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Assault,
+        Ability.SuppressiveFire,
+        Ability.MachineGunner,
+        Ability.FireOnTheMove,
+      ],
     },
   },
   {
@@ -125,7 +161,13 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.Flamethrower, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.Flamethrower,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/assault-flamer-back.jpg",
@@ -134,7 +176,13 @@ export const ultra: Unit[] = [
       infantry: 1,
       lightVehicles: 0,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.Flamethrower, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.Flamethrower,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -151,7 +199,11 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 5,
       heavyVehicles: 5,
-      abilities: [Ability.Piercing, Ability.FireOnTheMove, Ability.LimitedRange],
+      abilities: [
+        Ability.Piercing,
+        Ability.FireOnTheMove,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/attack-bike-back.jpg",
@@ -203,20 +255,33 @@ export const ultra: Unit[] = [
           infantry: 5,
           lightVehicles: 3,
           heavyVehicles: 2,
-          abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
-        }
+          abilities: [
+            Ability.MachineGunner,
+            Ability.SuppressiveFire,
+            Ability.FireOnTheMove,
+          ],
+        },
       ],
       secondaryWeapon: {
         infantry: 2,
         lightVehicles: 1,
         heavyVehicles: 0,
-        abilities: [Ability.Demolishing, Ability.FireOnTheMove, Ability.Assault]
-      }
+        abilities: [
+          Ability.Demolishing,
+          Ability.FireOnTheMove,
+          Ability.Assault,
+        ],
+      },
     },
     back: {
       image: "ultra/brother-ultracius-back.jpg",
-      terrainEffects: [TerrainEffect.DefensiveBonus, TerrainEffect.Structure, TerrainEffect.ObstacleObscures, TerrainEffect.ImpassableToSomeUnits]
-    }
+      terrainEffects: [
+        TerrainEffect.DefensiveBonus,
+        TerrainEffect.Structure,
+        TerrainEffect.ObstacleObscures,
+        TerrainEffect.ImpassableToSomeUnits,
+      ],
+    },
   },
   {
     release: Release.ULTRA,
@@ -284,12 +349,22 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: null,
-      abilities: [Ability.Signum, Ability.Auspex, Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [
+        Ability.Signum,
+        Ability.Auspex,
+        Ability.TransportInfantry,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
     back: {
       image: "ultra/command-rhino-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
-    }
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
+    },
   },
   {
     release: Release.ULTRA,
@@ -305,7 +380,12 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 2,
       heavyVehicles: 1,
-      abilities: [Ability.Order, Ability.Assault, Ability.TwinLinked, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.TwinLinked,
+        Ability.FireOnTheMove,
+      ],
     },
     back: {
       image: "ultra/cpt-sicarius-back.jpg",
@@ -314,7 +394,12 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 2,
       heavyVehicles: 1,
-      abilities: [Ability.Order, Ability.Assault, Ability.TwinLinked, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.TwinLinked,
+        Ability.FireOnTheMove,
+      ],
     },
   },
   {
@@ -331,7 +416,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Assault, Ability.FireOnTheMove, Ability.Inactive],
+      abilities: [
+        Ability.Large,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.Inactive,
+      ],
     },
     back: {
       image: "ultra/cyclone-m-l-back.jpg",
@@ -357,7 +447,14 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.Tearing, Ability.Terrifying, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.Tearing,
+        Ability.Terrifying,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/eviscerator-back.jpg",
@@ -366,7 +463,14 @@ export const ultra: Unit[] = [
       infantry: 1,
       lightVehicles: 0,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Flying, Ability.Assault, Ability.Tearing, Ability.Terrifying, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.Tearing,
+        Ability.Terrifying,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -409,7 +513,11 @@ export const ultra: Unit[] = [
       infantry: 4,
       lightVehicles: 3,
       heavyVehicles: 1,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
     back: {
       image: "ultra/heavy-bolter-back.jpg",
@@ -418,7 +526,11 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 2,
       heavyVehicles: 0,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
   },
   {
@@ -435,7 +547,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Large, Ability.Assault, Ability.Flamethrower, Ability.LimitedRange],
+      abilities: [
+        Ability.Large,
+        Ability.Assault,
+        Ability.Flamethrower,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/heavy-flamer-back.jpg",
@@ -461,26 +578,43 @@ export const ultra: Unit[] = [
           infantry: 2,
           lightVehicles: 5,
           heavyVehicles: 4,
-          abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
+          abilities: [
+            Ability.TwinLinked,
+            Ability.Piercing,
+            Ability.FireOnTheMove,
+          ],
         },
         {
           infantry: 2,
           lightVehicles: 5,
           heavyVehicles: 4,
-          abilities: [Ability.TwinLinked, Ability.Piercing, Ability.FireOnTheMove]
-        }
+          abilities: [
+            Ability.TwinLinked,
+            Ability.Piercing,
+            Ability.FireOnTheMove,
+          ],
+        },
       ],
       secondaryWeapon: {
         infantry: 4,
         lightVehicles: 3,
         heavyVehicles: 0,
-        abilities: [Ability.TwinLinked, Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
-      }
+        abilities: [
+          Ability.TwinLinked,
+          Ability.MachineGunner,
+          Ability.SuppressiveFire,
+          Ability.FireOnTheMove,
+        ],
+      },
     },
     back: {
       image: "ultra/land-raider-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
-    }
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
+    },
   },
   {
     release: Release.ULTRA,
@@ -496,7 +630,11 @@ export const ultra: Unit[] = [
       infantry: 4,
       lightVehicles: 3,
       heavyVehicles: 2,
-      abilities: [Ability.Flying, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [
+        Ability.Flying,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
     back: {
       image: "ultra/land-speeder-back.jpg",
@@ -568,7 +706,11 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 5,
       heavyVehicles: 5,
-      abilities: [Ability.FrighteningShot, Ability.Piercing, Ability.LimitedRange],
+      abilities: [
+        Ability.FrighteningShot,
+        Ability.Piercing,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/multi-melta-back.jpg",
@@ -577,7 +719,11 @@ export const ultra: Unit[] = [
       infantry: 1,
       lightVehicles: 5,
       heavyVehicles: 5,
-      abilities: [Ability.FrighteningShot, Ability.Piercing, Ability.LimitedRange],
+      abilities: [
+        Ability.FrighteningShot,
+        Ability.Piercing,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -626,20 +772,28 @@ export const ultra: Unit[] = [
           infantry: 4,
           lightVehicles: 4,
           heavyVehicles: 2,
-          abilities: [Ability.MachineGunner, Ability.SuppressiveFire, Ability.FireOnTheMove]
-        }
+          abilities: [
+            Ability.MachineGunner,
+            Ability.SuppressiveFire,
+            Ability.FireOnTheMove,
+          ],
+        },
       ],
       secondaryWeapon: {
         infantry: 2,
         lightVehicles: 5,
         heavyVehicles: 4,
-        abilities: [Ability.Piercing, Ability.FireOnTheMove]
-      }
+        abilities: [Ability.Piercing, Ability.FireOnTheMove],
+      },
     },
     back: {
       image: "ultra/predator-b-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
-    }
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
+    },
   },
   {
     release: Release.ULTRA,
@@ -655,12 +809,20 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: null,
-      abilities: [Ability.TransportInfantry, Ability.FireOnTheMove, Ability.SuppressiveFire]
+      abilities: [
+        Ability.TransportInfantry,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
     back: {
       image: "ultra/rhino-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
-    }
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
+    },
   },
   {
     release: Release.ULTRA,
@@ -722,7 +884,13 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 2,
       heavyVehicles: 1,
-      abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.TwinLinked, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Order,
+        Ability.Large,
+        Ability.Assault,
+        Ability.TwinLinked,
+        Ability.FireOnTheMove,
+      ],
     },
     back: {
       image: "ultra/sgt-helios-back.jpg",
@@ -731,7 +899,13 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 2,
       heavyVehicles: 1,
-      abilities: [Ability.Order, Ability.Large, Ability.Assault, Ability.TwinLinked, Ability.FireOnTheMove],
+      abilities: [
+        Ability.Order,
+        Ability.Large,
+        Ability.Assault,
+        Ability.TwinLinked,
+        Ability.FireOnTheMove,
+      ],
     },
   },
   {
@@ -748,7 +922,14 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Order, Ability.Large, Ability.Flying, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/sgt-ixion-back.jpg",
@@ -757,7 +938,14 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Order, Ability.Large, Ability.Flying, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Large,
+        Ability.Flying,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -774,7 +962,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 3,
       heavyVehicles: 2,
-      abilities: [Ability.Order, Ability.Assault, Ability.Piercing, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.Piercing,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/sgt-tirian-back.jpg",
@@ -783,7 +976,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 3,
       heavyVehicles: 2,
-      abilities: [Ability.Order, Ability.Assault, Ability.Piercing, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.Piercing,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -800,7 +998,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.LimitedRange,
+      ],
     },
     back: {
       image: "ultra/sgt-vandar-back.jpg",
@@ -809,7 +1012,12 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Order, Ability.Assault, Ability.FireOnTheMove, Ability.LimitedRange],
+      abilities: [
+        Ability.Order,
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.LimitedRange,
+      ],
     },
   },
   {
@@ -826,7 +1034,11 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 2,
       heavyVehicles: 0,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
     back: {
       image: "ultra/tactical-back.jpg",
@@ -835,7 +1047,11 @@ export const ultra: Unit[] = [
       infantry: 2,
       lightVehicles: 1,
       heavyVehicles: 0,
-      abilities: [Ability.Assault, Ability.FireOnTheMove, Ability.SuppressiveFire],
+      abilities: [
+        Ability.Assault,
+        Ability.FireOnTheMove,
+        Ability.SuppressiveFire,
+      ],
     },
   },
   {
@@ -852,7 +1068,12 @@ export const ultra: Unit[] = [
       infantry: 3,
       lightVehicles: 4,
       heavyVehicles: 3,
-      abilities: [Ability.Large, Ability.IndirectFire, Ability.FrighteningShot, Ability.LimitedFiringArc],
+      abilities: [
+        Ability.Large,
+        Ability.IndirectFire,
+        Ability.FrighteningShot,
+        Ability.LimitedFiringArc,
+      ],
     },
     back: {
       image: "ultra/thunderfire-cannon-back.jpg",
@@ -878,19 +1099,23 @@ export const ultra: Unit[] = [
           infantry: null,
           lightVehicles: null,
           heavyVehicles: null,
-          abilities: [Ability.LimitedFiringArc, Ability.Howitzer]
-        }
+          abilities: [Ability.LimitedFiringArc, Ability.Howitzer],
+        },
       ],
       secondaryWeapon: {
         infantry: 3,
         lightVehicles: 3,
         heavyVehicles: 0,
-        abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove]
-      }
+        abilities: [Ability.SuppressiveFire, Ability.FireOnTheMove],
+      },
     },
     back: {
       image: "ultra/vindicator-back.jpg",
-      terrainEffects: [TerrainEffect.Structure, TerrainEffect.Impassable, TerrainEffect.ObstacleBlocks]
-    }
+      terrainEffects: [
+        TerrainEffect.Structure,
+        TerrainEffect.Impassable,
+        TerrainEffect.ObstacleBlocks,
+      ],
+    },
   },
 ];

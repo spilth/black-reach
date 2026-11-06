@@ -34,9 +34,7 @@ export interface Reduced extends Back {
   abilities: Ability[];
 }
 
-export interface Destroyed extends Back {
-
-}
+export interface Destroyed extends Back {}
 
 export interface Active extends Back {
   movement: number | null;

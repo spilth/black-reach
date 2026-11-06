@@ -1,7 +1,9 @@
 import React from "react";
 
 export const Explosion = () => {
-  return <>
-    <p>Coming soon...</p>
-  </>;
+  return (
+    <>
+      <p>Coming soon...</p>
+    </>
+  );
 };
