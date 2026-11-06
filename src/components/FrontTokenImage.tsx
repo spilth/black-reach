@@ -1,4 +1,3 @@
-import React from "react";
 import type { Unit } from "../data/interfaces.tsx";
 
 export const FrontTokenImage = ({ unit }: { unit: Unit }) => {

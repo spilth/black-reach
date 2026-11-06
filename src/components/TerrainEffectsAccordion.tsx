@@ -1,5 +1,4 @@
 import { Accordion } from "react-bootstrap";
-import React from "react";
 import TerrainEffectComponent from "./TerrainEffectComponent.tsx";
 import type { TerrainEffect } from "../data/terrainEffects.tsx";
 

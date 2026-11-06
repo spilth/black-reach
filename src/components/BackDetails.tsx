@@ -1,4 +1,3 @@
-import React from "react";
 import type { Unit } from "../data/interfaces.tsx";
 import { AbilitiesAccordion } from "./AbilitiesAccordion.tsx";
 import { TerrainEffectsAccordion } from "./TerrainEffectsAccordion.tsx";

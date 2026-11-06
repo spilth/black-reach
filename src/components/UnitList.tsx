@@ -33,7 +33,7 @@ const UnitList = () => {
     <div className="pe-2">
       <div className="row g-0">
         <div className="col-3 col-lg-2 border-end vh-100 overflow-auto">
-          <Accordion defaultActiveKey="Ultramarines" flush>
+          <Accordion defaultActiveKey="Core Box - Ultramarines" flush>
             <FactionAccordionItem
               name="Core Box - Ultramarines"
               units={cbUltramarines}

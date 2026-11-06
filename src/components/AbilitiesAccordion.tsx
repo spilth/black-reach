@@ -1,7 +1,6 @@
 import type { Ability } from "../data/abilities.tsx";
 import { Accordion } from "react-bootstrap";
 import AbilityComponent from "./AbilityComponent.tsx";
-import React from "react";
 
 const abilityImageName = (ability: Ability) =>
   ability.toLowerCase().replace(/ /g, "");
